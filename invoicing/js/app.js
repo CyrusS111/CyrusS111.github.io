@@ -470,7 +470,7 @@ VIEWS.settings = () => {
     $$('[data-set]').forEach(i => Store.setSetting(i.dataset.set, i.value));
     await persist(); toast('Settings saved');
   };
-  $$('[data-csv]').forEach(b => b.onclick = () => download(new Blob([Store.dump()[b.dataset.csv]], { type: 'text/csv' }), b.dataset.csv));
+  $$('[data-csv]').forEach(b => b.onclick = () => download(new Blob([Store.exportForExcel(b.dataset.csv)], { type: 'text/csv;charset=utf-8' }), b.dataset.csv));
   const backupName = () => `elsys-backup-${today()}.elsys`;
   const fontStatus = async () => {
     const f = (await Vault.getFonts()) || {};

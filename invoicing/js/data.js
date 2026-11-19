@@ -24,6 +24,16 @@ const CSV = {
     const esc = v => { v = v == null ? '' : String(v); return /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
     return [cols.join(','), ...rows.map(r => cols.map(c => esc(r[c])).join(','))].join('\n') + '\n';
   },
+  // For files opened in Excel: a cell starting with = + - @ (or tab/CR) would run as a formula,
+  // so it gets a leading apostrophe and shows as plain text. Plain numbers (e.g. -5) are left alone.
+  // The BOM makes Excel read the file as UTF-8. Stored data is never changed by this.
+  forExcel(cols, rows) {
+    const safe = v => {
+      v = v == null ? '' : String(v);
+      return /^[=+\-@\t\r]/.test(v) && !/^[+-]?\d+(\.\d+)?$/.test(v) ? "'" + v : v;
+    };
+    return '﻿' + CSV.stringify(cols, rows.map(r => Object.fromEntries(cols.map(c => [c, safe(r[c])]))));
+  },
 };
 
 const SCHEMA = {
@@ -264,5 +274,6 @@ const Store = (() => {
     movements: () => t['movements.csv'],
     invoices, invoice, items, nextNumber, totals, saveInvoice, setStatus, deleteInvoice, convertToInvoice,
     merge, recount,
+    exportForExcel: name => CSV.forExcel(SCHEMA[name], t[name]),
   };
 })();
