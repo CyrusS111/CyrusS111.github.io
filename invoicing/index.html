@@ -139,12 +139,12 @@ dialog .row-end { display: flex; justify-content: flex-end; gap: 8px; margin-top
     <p class="sub muted" id="auth-sub">Sign in to continue</p>
 
     <form id="connect-form" class="hidden" autocomplete="off">
-      <label class="f">GitHub username<input name="owner" required autocapitalize="off" spellcheck="false"></label>
-      <label class="f">Private repository name<input name="repo" value="elsys-data" required autocapitalize="off" spellcheck="false"></label>
-      <label class="f">Access token (fine-grained, this repository only)<input name="token" type="password" required autocomplete="off" spellcheck="false"></label>
+      <label class="f">Account ID<input name="owner" required autocapitalize="off" spellcheck="false"></label>
+      <label class="f">Data store name<input name="repo" value="elsys-data" required autocapitalize="off" spellcheck="false"></label>
+      <label class="f">Access key<input name="token" type="password" required autocomplete="off" spellcheck="false"></label>
       <div class="err" id="connect-err"></div>
       <button class="btn primary" type="submit">Connect</button>
-      <p class="muted" style="margin:4px 0 0;font-size:12px;text-align:center">The token is stored on this device locked with your app password. Your data is encrypted before it reaches GitHub.</p>
+      <p class="muted" style="margin:4px 0 0;font-size:12px;text-align:center">The access key is stored on this device locked with your app password. Your data is encrypted before it leaves this device.</p>
     </form>
 
     <form id="setup-form" class="hidden">
@@ -158,7 +158,7 @@ dialog .row-end { display: flex; justify-content: flex-end; gap: 8px; margin-top
     <form id="login-form" class="hidden">
       <label class="f">Username<input name="u" autocomplete="username" required></label>
       <label class="f">Password<input name="p" type="password" autocomplete="current-password" required></label>
-      <label class="f hidden" id="login-token-wrap">GitHub access token<input name="token" type="password" autocomplete="off" spellcheck="false"></label>
+      <label class="f hidden" id="login-token-wrap">Access key<input name="token" type="password" autocomplete="off" spellcheck="false"></label>
       <div class="err" id="login-err"></div>
       <button class="btn primary" type="submit">Sign in</button>
       <p class="muted" style="margin:4px 0 0;font-size:12px;text-align:center">Data: <span id="login-repo"></span> · <a href="#" id="reconnect-link">change</a></p>
