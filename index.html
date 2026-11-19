@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EL-SYS Controls &amp; Engineering | Energy, Automation &amp; Electrical Engineering in Uganda</title>
+<meta name="description" content="EL-SYS Controls & Engineering Ltd cuts energy costs for Ugandan businesses, retrofits and automates machines, and installs safe, smart electrical systems. Site visits by appointment.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="EL-SYS Controls & Engineering Ltd">
+<meta property="og:description" content="Energy management, retrofitting, industrial automation, smart controls and electrical installations in Uganda.">
+<link rel="canonical" href="https://el-sysce.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://el-sysce.com/">
+<meta property="og:site_name" content="EL-SYS Controls & Engineering">
+<meta property="og:image" content="https://el-sysce.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="EL-SYS Controls & Engineering: energy management, retrofitting, automation, smart controls and electrical installations">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1B507C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1B507C;
+    --blue-dark: #12395A;
+    --blue-tint: #EAF1F7;
+    --amber: #F2A900;
+    --ink: #142233;
+    --muted: #536274;
+    --line: #D9E1EA;
+    --bg: #FFFFFF;
+    --bg-soft: #F5F8FB;
+    --wa: #1FA855;
+    --radius: 12px;
+    --max: 1120px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 17px; line-height: 1.6; color: var(--ink); background: var(--bg); }
+  h1, h2, h3 { font-family: "Saira", "Segoe UI", sans-serif; line-height: 1.2; margin: 0 0 .5em; }
+  h1 { font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 700; }
+  h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 700; }
+  h3 { font-size: 1.15rem; font-weight: 600; }
+  p { margin: 0 0 1em; }
+  a { color: var(--blue); }
+  img { max-width: 100%; height: auto; display: block; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+  section { padding: 72px 0; scroll-margin-top: 68px; }   /* keep section tops clear of the sticky header after a menu jump */
+  .eyebrow { font-family: "Saira", sans-serif; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; color: var(--blue); margin-bottom: .6em; }
+  .lead { font-size: 1.15rem; color: var(--muted); max-width: 640px; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; gap: .5em; padding: 13px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; border: 2px solid transparent; cursor: pointer; font-size: 1rem; font-family: inherit; }
+  .btn-wa { background: var(--wa); color: #fff; }
+  .btn-wa:hover { filter: brightness(.95); }
+  .btn-primary { background: var(--blue); color: #fff; }
+  .btn-primary:hover { background: var(--blue-dark); }
+  .btn-ghost { border-color: rgba(255,255,255,.6); color: #fff; }
+  .btn-ghost:hover { background: rgba(255,255,255,.1); }
+  .btn svg { width: 20px; height: 20px; flex: none; }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 16px; }
+  .nav .logo img { height: 40px; width: auto; }
+  .nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
+  .nav ul a { text-decoration: none; color: var(--ink); font-weight: 600; }
+  .nav ul a:hover { color: var(--blue); }
+  .nav .btn { padding: 9px 16px; font-size: .95rem; }
+  .nav { position: relative; }
+  .menu-btn { display: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); cursor: pointer; place-items: center; }
+  .menu-btn svg { width: 24px; height: 24px; }
+  @media (max-width: 860px) {
+    .menu-btn { display: grid; }
+    .nav .btn-wa { margin-left: auto; }
+    .nav ul { display: none; position: absolute; top: 68px; left: 0; right: 0; flex-direction: column; gap: 0; background: #fff; border-bottom: 1px solid var(--line); box-shadow: 0 12px 24px rgba(20,34,51,.12); padding: 6px 16px 12px; }
+    .nav ul.open { display: flex; }
+    .nav ul a { display: block; padding: 14px 4px; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
+    .nav ul li:last-child a { border-bottom: 0; }
+  }
+  @media (max-width: 420px) { .nav .btn span { display: none; } .nav .btn { padding: 10px; } }
+
+  /* Hero */
+  .hero { background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 70%); color: #fff; padding: 84px 0 76px; position: relative; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; right: -120px; top: -80px; width: 520px; height: 520px; border-radius: 50%; border: 2px solid rgba(255,255,255,.08); box-shadow: 0 0 0 40px rgba(255,255,255,.03), 0 0 0 80px rgba(255,255,255,.02); }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero .eyebrow { color: var(--amber); }
+  .hero p.lead { color: rgba(255,255,255,.85); }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 36px; }
+  .trust { display: flex; flex-wrap: wrap; gap: 10px 28px; padding: 0; margin: 0; list-style: none; color: rgba(255,255,255,.85); font-size: .95rem; }
+  .trust li { display: flex; align-items: center; gap: 8px; }
+  .trust li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--amber); flex: none; }
+  .hero-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+  @media (min-width: 960px) { .hero-grid { grid-template-columns: 1.15fr 1fr; } }
+  .hero-art img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 88% center; border-radius: 16px; box-shadow: 0 18px 40px rgba(0,0,0,.25); }
+
+  /* Illustrations */
+  .card .art { margin: -26px -26px 20px; aspect-ratio: 16 / 10; overflow: hidden; border-radius: var(--radius) var(--radius) 0 0; background: var(--blue-tint); }
+  .card .art img { width: 100%; height: 100%; object-fit: cover; object-position: 85% center; }
+  .process-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; margin-top: 32px; }
+  @media (min-width: 960px) { .process-grid { grid-template-columns: 1.2fr 1fr; } .process-grid .steps { grid-template-columns: 1fr 1fr; } }
+  .process-grid .steps { margin-top: 0; }
+  .process-art img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 80% center; border-radius: 16px; }
+
+  /* Services */
+  .grid { display: grid; gap: 20px; }
+  .services { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 36px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+  .card .icon { width: 48px; height: 48px; border-radius: 10px; background: var(--blue-tint); color: var(--blue); display: grid; place-items: center; margin-bottom: 16px; }
+  .card .icon svg { width: 26px; height: 26px; }
+  .card p { color: var(--muted); margin: 0; }
+  .card ul { color: var(--muted); padding-left: 18px; margin: 10px 0 0; }
+
+  /* Why */
+  .soft { background: var(--bg-soft); }
+  .why { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 32px; }
+  .why .item { border-left: 3px solid var(--blue); padding: 4px 0 4px 18px; }
+  .why .item p { color: var(--muted); margin: 0; }
+
+  /* TiS */
+  .tis { background: var(--ink); color: #fff; }
+  .tis .eyebrow { color: var(--amber); }
+  .tis .lead { color: rgba(255,255,255,.8); }
+  .tis-grid { display: grid; grid-template-columns: 1fr; gap: 36px; margin-top: 28px; align-items: center; }
+  @media (min-width: 900px) { .tis-grid { grid-template-columns: 1fr 1.15fr; } }
+  .tis figure { margin: 0; background: #fff; border-radius: var(--radius); padding: 10px; }
+  .tis figcaption { color: var(--muted); font-size: .85rem; padding: 6px 4px 0; }
+  .tis ul.ticks { list-style: none; padding: 0; margin: 0 0 24px; }
+  .tis ul.ticks li { padding-left: 28px; position: relative; margin-bottom: 10px; color: rgba(255,255,255,.88); }
+  .tis ul.ticks li::before { content: ""; position: absolute; left: 0; top: 7px; width: 14px; height: 8px; border-left: 3px solid var(--amber); border-bottom: 3px solid var(--amber); transform: rotate(-45deg); }
+
+  /* Steps */
+  .steps { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); counter-reset: step; margin-top: 32px; }
+  .step { position: relative; padding-top: 52px; }
+  .step::before { counter-increment: step; content: counter(step); position: absolute; top: 0; left: 0; width: 38px; height: 38px; border-radius: 50%; background: var(--blue); color: #fff; font-family: "Saira", sans-serif; font-weight: 700; display: grid; place-items: center; }
+  .step p { color: var(--muted); margin: 0; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start; }
+  @media (min-width: 860px) { .about-grid { grid-template-columns: 1.3fr 1fr; } }
+  .facts { background: var(--blue-tint); border-radius: var(--radius); padding: 24px; }
+  .facts dl { margin: 0; display: grid; gap: 14px; }
+  .facts dt { font-family: "Saira", sans-serif; font-weight: 600; color: var(--blue); font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; }
+  .facts dd { margin: 0; }
+  .industries { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; padding: 0; list-style: none; }
+  .industries li { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: .9rem; }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 28px; }
+  @media (min-width: 900px) { .contact-grid { grid-template-columns: 1fr 1.3fr; } }
+  .contact-list { list-style: none; padding: 0; margin: 0 0 24px; }
+  .contact-list li { margin-bottom: 14px; }
+  .contact-list strong { display: block; font-family: "Saira", sans-serif; font-size: .85rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+  form { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: grid; gap: 16px; }
+  .row2 { display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 560px) { .row2 { grid-template-columns: 1fr 1fr; } }
+  label { font-weight: 600; font-size: .95rem; display: block; margin-bottom: 6px; }
+  input, select, textarea { width: 100%; font: inherit; padding: 11px 12px; border: 1px solid #B9C6D3; border-radius: 8px; background: #fff; color: var(--ink); }
+  input:focus, select:focus, textarea:focus { outline: 3px solid rgba(27,80,124,.25); border-color: var(--blue); }
+  textarea { min-height: 110px; resize: vertical; }
+  .form-note { font-size: .9rem; color: var(--muted); margin: 0; }
+
+  /* Footer */
+  footer { background: var(--blue-dark); color: rgba(255,255,255,.8); padding: 40px 0 28px; font-size: .95rem; }
+  footer .cols { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: flex-start; }
+  footer img { height: 44px; width: auto; margin-bottom: 10px; }
+  footer a { color: #fff; }
+  footer .small { margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.15); font-size: .85rem; }
+
+  /* Floating WhatsApp */
+  .wa-float { position: fixed; right: 16px; bottom: 16px; z-index: 30; width: 58px; height: 58px; border-radius: 50%; background: var(--wa); color: #fff; display: grid; place-items: center; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+  .wa-float svg { width: 30px; height: 30px; }
+  .wa-float { transition: opacity .2s, transform .2s; }
+  .wa-float.away { opacity: 0; transform: scale(.8); pointer-events: none; }   /* hidden while the contact form is on screen */
+
+  /* Comfortable tap targets for phone numbers and email */
+  .contact-list a, footer .cols a { display: inline-block; padding: 8px 0; min-height: 44px; line-height: 28px; }
+
+  /* Social links */
+  .social { display: flex; gap: 10px; margin-top: 14px; }
+  /* footer .cols .social a beats the footer link tap-size rule above, which would otherwise break the centring */
+  .social a, footer .cols .social a { width: 44px; height: 44px; min-height: 0; line-height: 0; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.12); color: #fff; padding: 0; }
+  .social a:hover { background: rgba(255,255,255,.24); }
+  .social svg { width: 20px; height: 20px; }
+  .contact-social a { background: var(--blue-tint); color: var(--blue); }
+  .contact-social a:hover { background: #d6e4f0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="EL-SYS home"><img src="assets/logo-blue.svg" alt="EL-SYS Controls &amp; Engineering Ltd" width="227" height="100"></a>
+    <ul id="site-nav">
+      <li><a href="#services">Services</a></li>
+      <li><a href="tis.html">Fabrication (TiS)</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-wa" href="https://wa.me/256701475685?text=Hello%20EL-SYS%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2C18.1 1.3 15.1 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.6-8.4z"/></svg>
+      <span>WhatsApp us</span>
+    </a>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+      <div class="eyebrow">Controls &amp; Engineering</div>
+      <h1>Engineering That Powers Your Productivity and Cuts Energy Waste.</h1>
+      <p class="lead">EL-SYS partners with Ugandan factories, businesses, and modern homes to automate operations, upgrade aging equipment, and build safe, energy-efficient electrical systems—all designed, documented, and supported by our technical specialists.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-wa" href="https://wa.me/256701475685?text=Hello%20EL-SYS%2C%20I%27d%20like%20to%20request%20a%20site%20visit." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0zm5.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+          Request a site visit
+        </a>
+        <a class="btn btn-ghost" href="#services">See our services</a>
+      </div>
+      <ul class="trust">
+        <li>Registered Ugandan company (2022)</li>
+        <li>10+ years of engineering experience</li>
+        <li>Site visits by appointment</li>
+      </ul>
+      </div>
+      <div class="hero-art">
+        <img src="assets/illustrations/hero.webp" alt="Illustration of an engineer with a tablet beside an open industrial control panel" width="1024" height="572" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="wrap">
+      <div class="eyebrow">What we do</div>
+      <h2>Five services, one goal: lower costs and fewer breakdowns.</h2>
+      <p class="lead">We don't just wire. We measure, design and document, so you know what you're paying for and what it saves you.</p>
+
+      <div class="grid services">
+        <article class="card">
+          <div class="art"><img src="assets/illustrations/energy-management.webp" alt="Engineer measuring a distribution board with a clamp meter beside a falling energy-use chart" width="1024" height="765" loading="lazy"></div>
+          <h3>Energy Management</h3>
+          <p>Find where your power is going and stop paying for waste.</p>
+          <ul>
+            <li>Energy audits and load measurement</li>
+            <li>Power-factor and tariff checks</li>
+            <li>Scheduling, metering and savings plans</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="art"><img src="assets/illustrations/retrofitting.webp" alt="Old lathe being fitted with a modern control box and touchscreen" width="1024" height="765" loading="lazy"></div>
+          <h3>Retrofitting Legacy Machines</h3>
+          <p>Give old, reliable machines modern controls instead of replacing them.</p>
+          <ul>
+            <li>New drives, sensors and PLC controls</li>
+            <li>Safety interlocks and protection</li>
+            <li>Lower running costs, longer machine life</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="art"><img src="assets/illustrations/industrial-automation.webp" alt="Operator at a touchscreen panel beside an automated production line" width="1024" height="765" loading="lazy"></div>
+          <h3>Industrial Automation</h3>
+          <p>Reliable, repeatable processes with less manual work.</p>
+          <ul>
+            <li>PLC, HMI and SCADA systems</li>
+            <li>Pumping, process and warehouse automation</li>
+            <li>Control panel design and building</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="art"><img src="assets/illustrations/smart-controls.webp" alt="Home and shop lights, fan and pump controlled from a smartphone" width="1024" height="765" loading="lazy"></div>
+          <h3>Smart Controls</h3>
+          <p>Control lighting, sockets and equipment automatically or from your phone.</p>
+          <ul>
+            <li>Smart homes, offices and shops</li>
+            <li>Automatic switching and timers</li>
+            <li>Remote monitoring and alerts</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="art"><img src="assets/illustrations/electrical-installations.webp" alt="Two electricians installing and testing a neat distribution board" width="1024" height="765" loading="lazy"></div>
+          <h3>Electrical Installations</h3>
+          <p>Safe, properly protected installations that pass inspection and last.</p>
+          <ul>
+            <li>Commercial and residential wiring</li>
+            <li>Distribution boards and protection</li>
+            <li>Inspections, fault-finding and upgrades</li>
+          </ul>
+        </article>
+        <article class="card" style="background:var(--blue-tint);border-color:transparent">
+          <div class="icon" style="background:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h3>Not sure what you need?</h3>
+          <p>Describe the problem (high bills, a machine that keeps failing, an unsafe board) and we'll tell you honestly what makes sense.</p>
+          <p style="margin-top:14px"><a class="btn btn-primary" href="#contact">Describe your problem</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="soft">
+    <div class="wrap">
+      <div class="eyebrow">Why EL-SYS</div>
+      <h2>Precision from diagnosis to handover.</h2>
+      <div class="grid why">
+        <div class="item"><h3>We measure first</h3><p>Every job starts with measurements and a clear diagnosis, not guesswork.</p></div>
+        <div class="item"><h3>Mission-critical background</h3><p>Our lead engineer has spent over a decade keeping critical communication, navigation, surveillance, and power systems running.</p></div>
+        <div class="item"><h3>Everything documented</h3><p>You get drawings, a written quote and a handover, so any qualified technician can maintain your system.</p></div>
+        <div class="item"><h3>Support after installation</h3><p>We stay reachable on WhatsApp for questions, maintenance and upgrades.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TiS -->
+  <section class="tis" id="tis">
+    <div class="wrap">
+      <div class="eyebrow">TiS · Turnkey Industrial Solutions</div>
+      <h2>Can it be made in Uganda?</h2>
+      <p class="lead">A broken machine part you can't find? A prototype you need built? Before you import it and wait weeks, ask us. TiS, an EL-SYS initiative, connects your job to verified local fabrication facilities.</p>
+      <div class="tis-grid">
+        <div>
+          <ul class="ticks">
+            <li>Spare parts and machine components: machining, fabrication, welding</li>
+            <li>Prototypes and small production runs for innovators and SMEs</li>
+            <li>Electrical and electronic assembly</li>
+            <li>One point of contact: we manage the quote, the work and quality checks</li>
+            <li>Genuine parts shop: Schneider, Festo, SMC, SKF and standard fasteners</li>
+          </ul>
+          <a class="btn" href="tis.html" style="background: var(--amber); color: var(--ink); margin: 0 10px 10px 0">Explore TiS: shop, fabrication, design</a>
+          <a class="btn btn-wa" href="https://wa.me/256701475685?text=Hello%20EL-SYS%2FTiS%2C%20I%20need%20a%20part%20or%20prototype%20made.%20Here%20are%20the%20details%3A" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0z"/></svg>
+            Send us a photo of the part
+          </a>
+        </div>
+        <figure>
+          <img src="assets/illustrations/tis-made-in-uganda.webp" alt="Illustration of a factory manager photographing a broken gear, and a machinist making a new one on a local CNC machine" width="1024" height="765" loading="lazy">
+          <figcaption>How it works: you share the part or design → we quote → a verified local facility makes it → quality check and delivery.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">How we work</div>
+      <h2>Simple from first message to handover.</h2>
+      <div class="process-grid">
+        <div class="grid steps">
+          <div class="step"><h3>Tell us the problem</h3><p>WhatsApp, call or use the form. Photos speed things up.</p></div>
+          <div class="step"><h3>Site visit</h3><p>By appointment. We inspect, measure and listen.</p></div>
+          <div class="step"><h3>Clear proposal</h3><p>A written scope, quote and timeline before any work starts.</p></div>
+          <div class="step"><h3>Deliver &amp; support</h3><p>Installation, testing, documentation and ongoing support.</p></div>
+        </div>
+        <div class="process-art">
+          <img src="assets/illustrations/site-visit.webp" alt="Illustration of an engineer greeting a business owner at a factory entrance for a site visit" width="1024" height="765" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="soft" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <div class="eyebrow">About us</div>
+        <h2>A Ugandan engineering company built on practical experience.</h2>
+        <p>EL-SYS Controls &amp; Engineering Ltd was incorporated in Uganda in 2022 to bring dependable automation, energy and electrical engineering to local businesses, factories, institutions and homes.</p>
+        <p>The company is led by <strong>Joseph Bwamiki</strong>, an electrical systems engineer with over ten years' experience in RF, electro-mechanical and power systems up to 33&nbsp;kV, as well as PLC programming, CAD design and technical training. He holds a BEng in Electrical &amp; Electronics Engineering and a Diploma in Mechanical Engineering.</p>
+        <p>Our belief is simple: Uganda's next energy and industrial gains will come from smarter use of what we already have, and from making more of what we need right here.</p>
+      </div>
+      <aside class="facts">
+        <dl>
+          <div><dt>Company</dt><dd>EL-SYS Controls &amp; Engineering Ltd, registered in Uganda (2022)</dd></div>
+          <div><dt>Coverage</dt><dd>Based in Kampala, serving clients across Uganda; projects elsewhere in East Africa by arrangement</dd></div>
+          <div><dt>Visits</dt><dd>Site visits by appointment</dd></div>
+          <div><dt>Industries</dt>
+            <dd><ul class="industries"><li>Manufacturing</li><li>Food &amp; beverage</li><li>Water &amp; pumping</li><li>Commercial buildings</li><li>Schools &amp; institutions</li><li>Homes</li></ul></dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="eyebrow">Contact</div>
+      <h2>Tell us what you need.</h2>
+      <p class="lead">The fastest way to reach us is WhatsApp. Fill in the form and it opens a ready-made WhatsApp message to us.</p>
+      <div class="contact-grid">
+        <div>
+          <ul class="contact-list">
+            <li><strong>WhatsApp / Phone</strong><a href="https://wa.me/256701475685" target="_blank" rel="noopener">+256 701 475 685</a></li>
+            <li><strong>Email</strong><a href="mailto:info@el-sysce.com">info@el-sysce.com</a></li>
+            <li><strong>Location</strong>Based in Kampala, serving all of Uganda · site visits by appointment</li>
+            <li><strong>Hours</strong>Monday to Saturday, 8:00 to 18:00</li>
+          </ul>
+          <div class="contact-list" style="margin:0"><strong>Follow us</strong></div>
+          <div class="social contact-social">
+            <a href="https://www.linkedin.com/company/94253656/" target="_blank" rel="noopener" aria-label="EL-SYS on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+            <a href="https://www.instagram.com/elsys_ce/" target="_blank" rel="noopener" aria-label="EL-SYS on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61596646021228" target="_blank" rel="noopener" aria-label="El-Sys on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21.9v-7.9h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.6V14h2.8v7.9z"/></svg></a>
+          </div>
+        </div>
+        <form id="quote" novalidate>
+          <div class="row2">
+            <div><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+            <div><label for="f-org">Company (optional)</label><input id="f-org" name="org" autocomplete="organization"></div>
+          </div>
+          <div class="row2">
+            <div><label for="f-service">What do you need?</label>
+              <select id="f-service" name="service">
+                <option>Energy management / audit</option>
+                <option>Retrofitting an old machine</option>
+                <option>Industrial automation</option>
+                <option>Smart controls</option>
+                <option>Electrical installation</option>
+                <option>A part or prototype made (TiS)</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div><label for="f-loc">Location</label><input id="f-loc" name="location" placeholder="e.g. Namanve, Mukono"></div>
+          </div>
+          <div><label for="f-msg">Describe the problem or job</label><textarea id="f-msg" name="message" required placeholder="e.g. Our power bill doubled since March; the grinder motor trips every afternoon."></textarea></div>
+          <button class="btn btn-wa" type="submit">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0z"/></svg>
+            Send via WhatsApp
+          </button>
+          <p class="form-note" id="form-note">Prefer email? Write to <a href="mailto:info@el-sysce.com">info@el-sysce.com</a>.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <img src="assets/logo-white.svg" alt="EL-SYS Controls &amp; Engineering Ltd" width="227" height="100">
+        <div>Energy · Retrofitting · Automation · Smart Controls · Electrical</div>
+        <div class="social">
+          <a href="https://www.linkedin.com/company/94253656/" target="_blank" rel="noopener" aria-label="EL-SYS on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+          <a href="https://www.instagram.com/elsys_ce/" target="_blank" rel="noopener" aria-label="EL-SYS on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61596646021228" target="_blank" rel="noopener" aria-label="El-Sys on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21.9v-7.9h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.6V14h2.8v7.9z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div><a href="https://wa.me/256701475685" target="_blank" rel="noopener">+256 701 475 685</a></div>
+        <div><a href="mailto:info@el-sysce.com">info@el-sysce.com</a></div>
+        <div>Based in Kampala · serving all of Uganda</div>
+      </div>
+    </div>
+    <div class="small">© <span id="yr">2026</span> EL-SYS Controls &amp; Engineering Ltd. TiS (Turnkey Industrial Solutions) is an EL-SYS initiative.</div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/256701475685?text=Hello%20EL-SYS%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" aria-label="Chat with EL-SYS on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2C18.1 1.3 15.1 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.6-8.4z"/></svg>
+</a>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Phone menu: toggle the section links; close after choosing one.
+  var menuBtn = document.querySelector('.menu-btn'), nav = document.getElementById('site-nav');
+  menuBtn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.closest('a')) { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); menuBtn.setAttribute('aria-label', 'Open menu'); }
+  });
+
+  // Hide the floating WhatsApp button while the contact form is on screen (the form has its own WhatsApp button).
+  var floatBtn = document.querySelector('.wa-float'), quoteForm = document.getElementById('quote');
+  function updateFloat() {
+    var r = quoteForm.getBoundingClientRect();
+    floatBtn.classList.toggle('away', r.top < window.innerHeight - 80 && r.bottom > 80);
+  }
+  window.addEventListener('scroll', updateFloat, { passive: true });
+  window.addEventListener('resize', updateFloat);
+  updateFloat();
+  document.getElementById('quote').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target, note = document.getElementById('form-note');
+    var name = f.name.value.trim(), msg = f.message.value.trim();
+    if (!name || !msg) { note.textContent = 'Please add your name and a short description of the job.'; note.style.color = '#B42318'; return; }
+    var lines = [
+      'Hello EL-SYS, I am interested in: ' + f.service.value,
+      'Name: ' + name + (f.org.value.trim() ? ' (' + f.org.value.trim() + ')' : ''),
+      f.location.value.trim() ? 'Location: ' + f.location.value.trim() : '',
+      'Details: ' + msg
+    ].filter(Boolean);
+    window.open('https://wa.me/256701475685?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+  });
+</script>
+</body>
+</html>

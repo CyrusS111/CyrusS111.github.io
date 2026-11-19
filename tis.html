@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TiS · Turnkey Industrial Solutions | Parts, fabrication &amp; custom design in Uganda</title>
+<meta name="description" content="TiS by EL-SYS: genuine industrial parts in Kampala, local fabrication from your CAD files or a photo, and custom-designed parts. Can it be made in Uganda? Ask us.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#12395A">
+<meta property="og:title" content="TiS · Turnkey Industrial Solutions by EL-SYS">
+<meta property="og:description" content="Genuine industrial parts, local fabrication from your drawings, and custom-designed parts in Uganda.">
+<meta property="og:image" content="assets/illustrations/tis-made-in-uganda.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1B507C; --blue-dark: #12395A; --blue-tint: #EAF1F7; --amber: #F2A900; --ink: #142233;
+    --muted: #536274; --line: #D9E1EA; --bg-soft: #F5F8FB; --wa: #1FA855; --radius: 14px; --max: 1200px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 17px; line-height: 1.55; color: var(--ink); background: #fff; }
+  h1, h2, h3 { font-family: "Saira", "Segoe UI", sans-serif; line-height: 1.15; margin: 0 0 .45em; }
+  h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; }
+  h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 700; }
+  h3 { font-size: 1.15rem; font-weight: 600; }
+  p { margin: 0 0 1em; }
+  a { color: var(--blue); }
+  img { max-width: 100%; height: auto; display: block; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+  section { padding: 68px 0; scroll-margin-top: 124px; }
+  .eyebrow { font-family: "Saira", sans-serif; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; font-size: .8rem; color: var(--blue); margin-bottom: .6em; }
+  .lead { font-size: 1.12rem; color: var(--muted); max-width: 660px; }
+  .soft { background: var(--bg-soft); }
+  .dark { background: var(--ink); color: #fff; }
+  .dark .eyebrow { color: var(--amber); }
+  .dark .lead { color: rgba(255,255,255,.82); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5em; min-height: 48px; padding: 0 22px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 2px solid transparent; cursor: pointer; font-size: 1rem; font-family: inherit; }
+  .btn svg { width: 20px; height: 20px; flex: none; }
+  .btn-amber { background: var(--amber); color: var(--ink); } .btn-amber:hover { background: #ffbc1f; }
+  .btn-blue { background: var(--blue); color: #fff; } .btn-blue:hover { background: var(--blue-dark); }
+  .btn-ghost { border-color: rgba(255,255,255,.6); color: #fff; } .btn-ghost:hover { background: rgba(255,255,255,.1); }
+  .btn-line { border-color: #B9C6D3; color: var(--ink); background: #fff; } .btn-line:hover { border-color: var(--blue); }
+  .btn-wa { background: var(--wa); color: #fff; } .btn-wa:hover { filter: brightness(.95); }
+  .btn-sm { min-height: 44px; padding: 0 16px; font-size: .95rem; }
+
+  /* Header (same as home page) */
+  header { position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,.97); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; position: relative; }
+  .nav .logo img { height: 38px; width: auto; }
+  .nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }
+  .nav ul a { text-decoration: none; color: var(--ink); font-weight: 600; }
+  .nav ul a:hover, .nav ul a[aria-current] { color: var(--blue); }
+  .menu-btn { display: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 10px; background: #fff; cursor: pointer; place-items: center; }
+  .menu-btn svg { width: 24px; height: 24px; }
+  @media (max-width: 860px) {
+    .menu-btn { display: grid; }
+    .nav .btn-wa { margin-left: auto; }
+    .nav ul { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0; background: #fff; border-bottom: 1px solid var(--line); box-shadow: 0 12px 24px rgba(20,34,51,.12); padding: 6px 16px 12px; }
+    .nav ul.open { display: flex; }
+    .nav ul a { display: block; padding: 14px 4px; border-bottom: 1px solid var(--line); }
+    .nav ul li:last-child a { border-bottom: 0; }
+  }
+  @media (max-width: 420px) { .nav .btn span { display: none; } .nav .btn { padding: 0 12px; } }
+
+  /* TiS sub-navigation */
+  .subnav { position: sticky; top: 64px; z-index: 25; background: var(--blue-dark); }
+  .subnav .wrap { display: flex; align-items: center; gap: 14px; min-height: 58px; }
+  .tis-badge { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 9px; background: var(--amber); color: var(--ink); font-family: "Saira", sans-serif; font-weight: 700; }
+  .subnav nav { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; flex: 1 1 auto; }
+  .subnav nav::-webkit-scrollbar { display: none; }
+  .subnav nav a { flex: none; display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; color: #D7E2EC; text-decoration: none; font-weight: 600; white-space: nowrap; }
+  .subnav nav a:hover { color: #fff; background: rgba(255,255,255,.08); }
+  .subnav nav a.on { background: var(--amber); color: var(--ink); }
+  .order-btn { flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 0; background: #fff; color: var(--ink); font: inherit; font-weight: 700; cursor: pointer; }
+  .order-btn svg { width: 20px; height: 20px; }
+  .order-btn .count { min-width: 22px; height: 22px; border-radius: 11px; background: var(--amber); display: inline-grid; place-items: center; font-size: .8rem; padding: 0 6px; }
+  @media (max-width: 560px) { .order-btn .label { display: none; } .tis-badge { display: none; } }
+
+  /* Hero */
+  .hero { padding: 64px 0 72px; }
+  .hero-grid { display: grid; gap: 40px; align-items: center; grid-template-columns: 1fr; }
+  @media (min-width: 960px) { .hero-grid { grid-template-columns: 1.1fr 1fr; } }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 26px; }
+  .trust { display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 0; margin: 0; list-style: none; color: rgba(255,255,255,.85); font-size: .95rem; }
+  .trust li { display: flex; align-items: center; gap: 8px; }
+  .trust li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
+  .hero figure { margin: 0; background: #fff; border-radius: 16px; padding: 10px; box-shadow: 0 20px 50px rgba(0,0,0,.3); }
+  .hero figcaption { color: var(--muted); font-size: .85rem; padding: 6px 4px 0; }
+
+  /* Cards & grids */
+  .grid { display: grid; gap: 18px; }
+  .ways { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 28px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+  .way { display: flex; flex-direction: column; gap: 10px; border-top: 4px solid var(--amber); }
+  .way.b { border-top-color: var(--blue); } .way.g { border-top-color: var(--wa); }
+  .way ul { margin: 0; padding-left: 20px; color: var(--muted); }
+  .way .btn { align-self: flex-start; margin-top: auto; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: .82rem; font-weight: 600; background: var(--blue-tint); color: var(--blue-dark); }
+  .mono { font-family: ui-monospace, Consolas, monospace; font-size: .78rem; }
+  .files { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-top: 24px; }
+  .procs { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 24px; }
+  .proc { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); padding: 18px; }
+  .proc p { color: #C9D6E2; margin: 0; font-size: .95rem; }
+  .steps { list-style: none; padding: 0; margin: 24px 0 0; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+  .steps .n { width: 38px; height: 38px; border-radius: 50%; background: var(--blue); color: #fff; display: grid; place-items: center; font-family: "Saira", sans-serif; font-weight: 700; margin-bottom: 10px; }
+  .steps p { color: var(--muted); margin: 0; font-size: .95rem; }
+
+  /* Forms */
+  form.card { display: grid; gap: 16px; }
+  .row2 { display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 620px) { .row2 { grid-template-columns: 1fr 1fr; } }
+  label { font-weight: 600; font-size: .95rem; display: block; margin-bottom: 6px; }
+  input, select, textarea { width: 100%; font: inherit; padding: 11px 12px; border: 1px solid #B9C6D3; border-radius: 9px; background: #fff; color: var(--ink); min-height: 46px; }
+  input:focus, select:focus, textarea:focus { outline: 3px solid rgba(27,80,124,.25); border-color: var(--blue); }
+  textarea { min-height: 100px; resize: vertical; }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid #B9C6D3; background: #fff; font: inherit; font-weight: 600; font-size: .95rem; color: var(--ink); cursor: pointer; }
+  .pill[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .note { font-size: .92rem; color: var(--muted); margin: 0; }
+  .notice { padding: 14px 16px; border-radius: 12px; background: #FFF6DB; color: #4A3A00; font-size: .95rem; }
+  .split { display: grid; gap: 24px; grid-template-columns: 1fr; align-items: start; margin-top: 24px; }
+  @media (min-width: 960px) { .split { grid-template-columns: 1.5fr 1fr; } }
+
+  /* Shop */
+  .shop-top { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; justify-content: space-between; }
+  .search { display: flex; gap: 8px; flex: 1 1 420px; max-width: 620px; }
+  .search input { border-radius: 999px; padding: 0 18px; min-height: 50px; }
+  .shop { display: grid; gap: 22px; grid-template-columns: 1fr; margin-top: 22px; }
+  @media (min-width: 980px) { .shop { grid-template-columns: 270px 1fr; } }
+  .cats { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+  .cats::-webkit-scrollbar { display: none; }
+  @media (min-width: 980px) { .cats { flex-direction: column; overflow: visible; position: sticky; top: 140px; } }
+  .cat { flex: none; display: flex; justify-content: space-between; align-items: center; gap: 10px; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; font: inherit; font-weight: 600; font-size: .95rem; color: var(--ink); text-align: left; cursor: pointer; white-space: nowrap; }
+  .cat:hover { border-color: var(--blue); }
+  .cat[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .cat small { opacity: .75; font-weight: 600; }
+  .products { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); align-content: start; }
+  @media (max-width: 520px) { .products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
+  .prod { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+  .prod .ph { aspect-ratio: 1 / 1; background: #D6D6D6; display: grid; place-items: center; color: #5E6E7E; font-weight: 600; font-size: .85rem; text-align: center; }
+  .prod .ph img { width: 100%; height: 100%; object-fit: cover; }
+  .prod .body { padding: 14px; display: flex; flex-direction: column; gap: 6px; flex: 1 1 auto; }
+  .prod h3 { font-family: "Source Sans 3", sans-serif; font-weight: 700; font-size: 1rem; margin: 0; }
+  .prod .spec { color: var(--muted); font-size: .88rem; margin: 0; }
+  .stock { align-self: flex-start; padding: 2px 9px; border-radius: 999px; font-size: .75rem; font-weight: 700; }
+  .stock.k { background: #E3F3EA; color: #16663A; } .stock.l { background: var(--blue-tint); color: var(--blue-dark); } .stock.i { background: #FFF1D6; color: #7A4D00; }
+  .price { font-family: "Saira", sans-serif; font-weight: 700; font-size: 1.15rem; margin-top: auto; padding-top: 6px; }
+  .price small { font-family: "Source Sans 3", sans-serif; font-weight: 400; color: var(--muted); font-size: .8rem; }
+  .bulk { color: var(--muted); font-size: .8rem; margin: 0; }
+  .add { display: flex; gap: 6px; }
+  .add input { width: 64px; min-height: 44px; padding: 0 8px; }
+  .add .btn { flex: 1 1 auto; padding: 0 10px; }
+  @media (max-width: 520px) { .prod .body { padding: 10px; } .add input { width: 52px; } .add .btn { font-size: .85rem; } .bulk { display: none; } }
+  .empty { padding: 30px; text-align: center; color: var(--muted); }
+
+  /* Order drawer */
+  .drawer { position: fixed; inset: 0; z-index: 50; display: none; }
+  .drawer.open { display: block; }
+  .drawer .shade { position: absolute; inset: 0; background: rgba(15,30,45,.45); }
+  .drawer .panel { position: absolute; right: 0; top: 0; bottom: 0; width: min(440px, 100%); background: #fff; display: flex; flex-direction: column; box-shadow: -10px 0 40px rgba(0,0,0,.2); }
+  .drawer header { position: static; display: flex; justify-content: space-between; align-items: center; padding: 16px 18px; background: #fff; }
+  .drawer .list { flex: 1 1 auto; overflow: auto; padding: 8px 18px; }
+  .line { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .line input { width: 64px; min-height: 40px; padding: 0 8px; }
+  .x { width: 40px; height: 40px; border: 0; background: transparent; cursor: pointer; color: var(--muted); font-size: 1.3rem; }
+  .drawer footer { padding: 16px 18px; border-top: 1px solid var(--line); display: grid; gap: 10px; background: #fff; color: var(--ink); }
+
+  /* Packages & library */
+  .plans { grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); margin-top: 24px; }
+  .plan { display: flex; flex-direction: column; gap: 10px; }
+  .plan.best { border: 2px solid var(--blue); }
+  .plan ul { margin: 0; padding-left: 20px; color: var(--muted); }
+  .services { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 24px; }
+  .services .card p { color: var(--muted); margin: 0 0 8px; }
+
+  /* CTA + footer */
+  .cta { background: var(--amber); padding: 56px 0; }
+  .cta .wrap { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+  footer.site { background: var(--blue-dark); color: rgba(255,255,255,.8); padding: 40px 0 28px; font-size: .95rem; }
+  footer.site .cols { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; }
+  footer.site img { height: 44px; width: auto; margin-bottom: 10px; }
+  footer.site a { color: #fff; display: inline-block; min-height: 44px; line-height: 44px; }
+  footer.site .small { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.15); font-size: .85rem; }
+  .wa-float { position: fixed; right: 16px; bottom: 16px; z-index: 40; width: 58px; height: 58px; border-radius: 50%; background: var(--wa); color: #fff; display: grid; place-items: center; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+  .wa-float svg { width: 30px; height: 30px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="EL-SYS home"><img src="assets/logo-blue.svg" alt="EL-SYS Controls &amp; Engineering Ltd" width="227" height="100"></a>
+    <ul id="site-nav">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="tis.html" aria-current="page">Fabrication (TiS)</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-wa btn-sm" href="https://wa.me/256701475685?text=Hello%20EL-SYS%2FTiS%2C%20" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2C18.1 1.3 15.1 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.6-8.4z"/></svg>
+      <span>WhatsApp us</span>
+    </a>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="subnav">
+  <div class="wrap">
+    <span class="tis-badge" aria-hidden="true">TiS</span>
+    <nav aria-label="TiS sections">
+      <a href="#overview" class="on">Overview</a>
+      <a href="#print3d">3D printing</a>
+      <a href="#make">Make it</a>
+      <a href="#shop">Shop parts</a>
+      <a href="#custom">Custom design</a>
+    </nav>
+    <button class="order-btn" type="button" id="open-order" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11h11l2-8H6.2"/><circle cx="9" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg>
+      <span class="label">Order list</span><span class="count" id="order-count">0</span>
+    </button>
+  </div>
+</div>
+
+<main>
+  <!-- Overview -->
+  <section class="dark hero" id="overview">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">TiS · Turnkey Industrial Solutions</div>
+        <h1>Can it be made in Uganda? Send the drawing. We'll quote it.</h1>
+        <p class="lead">Genuine industrial parts from certified suppliers, local fabrication from your CAD file or a photo of the broken part, and custom design when there's no drawing at all. One team, one order, one delivery.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-amber" href="#make">Get a part made</a>
+          <a class="btn btn-ghost" href="#shop">Shop genuine parts</a>
+        </div>
+        <ul class="trust">
+          <li>Genuine brands via authorised suppliers</li>
+          <li>Pay in UGX: MoMo or bank</li>
+          <li>Your drawings kept confidential</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="assets/illustrations/tis-made-in-uganda.webp" alt="A factory manager photographs a broken gear and a machinist makes a new one on a local CNC machine" width="1024" height="765">
+        <figcaption>Broken part in the morning, replacement made locally, not imported.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="soft">
+    <div class="wrap">
+      <div class="eyebrow">Three ways to work with TiS</div>
+      <h2>Make it, buy it, or have it designed</h2>
+      <div class="grid ways">
+        <div class="card way">
+          <div class="eyebrow" style="color: var(--muted)">Fabrication</div>
+          <h3 style="font-size: 1.5rem">Make it</h3>
+          <p style="color: var(--muted); margin: 0">You have a drawing, a model or a broken sample. We quote it, make it in a verified local workshop and check it before delivery.</p>
+          <ul><li>CNC machining, laser cutting, 3D printing</li><li>Sheet metal, welding, gears, PCBs</li><li>One-off spares to small batches</li></ul>
+          <a class="btn btn-blue btn-sm" href="#make">Request a quote</a>
+        </div>
+        <div class="card way b">
+          <div class="eyebrow" style="color: var(--muted)">Off the shelf</div>
+          <h3 style="font-size: 1.5rem">Shop parts</h3>
+          <p style="color: var(--muted); margin: 0">Genuine Schneider, Festo, SMC, SKF, Mean Well, Omron and standard ISO/DIN parts, priced in UGX with clear stock status.</p>
+          <ul><li>In stock in Kampala, or sourced to order</li><li>Business prices for trade accounts</li><li>Add parts to a fabrication job</li></ul>
+          <a class="btn btn-blue btn-sm" href="#shop">Browse the catalogue</a>
+        </div>
+        <div class="card way g">
+          <div class="eyebrow" style="color: var(--muted)">Engineering design</div>
+          <h3 style="font-size: 1.5rem">Custom design</h3>
+          <p style="color: var(--muted); margin: 0">No drawing yet? Our engineers design the part, enclosure, circuit or jig, then hand you the files or make it for you.</p>
+          <ul><li>Reverse-engineering of broken parts</li><li>Enclosures, brackets, jigs, fixtures</li><li>PCB and control panel design</li></ul>
+          <a class="btn btn-blue btn-sm" href="#custom">Start a design brief</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" style="background: var(--blue-dark)">
+    <div class="wrap">
+      <div class="eyebrow">What the TiS network can make</div>
+      <h2>Processes</h2>
+      <div class="grid procs">
+        <div class="proc"><h3>CNC machining</h3><p>Turning and milling in steel, aluminium, brass and engineering plastics.</p></div>
+        <div class="proc"><h3>Laser &amp; plasma cutting</h3><p>Flat parts, panels, brackets and signage from sheet.</p></div>
+        <div class="proc"><h3>3D printing</h3><p>FDM and resin prints for prototypes, housings and jigs.</p></div>
+        <div class="proc"><h3>Sheet metal &amp; welding</h3><p>Bending, frames, guards and enclosures.</p></div>
+        <div class="proc"><h3>Gears &amp; shafts</h3><p>Replacement gears, sprockets, bushes and keyed shafts.</p></div>
+        <div class="proc"><h3>PCB fabrication &amp; assembly</h3><p>Boards from your Gerbers, assembly and testing.</p></div>
+        <div class="proc"><h3>Control panel building</h3><p>Wired, labelled and tested panels to your schematic.</p></div>
+        <div class="proc"><h3>Pneumatic systems</h3><p>Cylinders, valves and air preparation assembled and tested.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D printing -->
+  <section id="print3d">
+    <div class="wrap">
+      <div class="eyebrow">3D printing service</div>
+      <h2>Print it in days: prototypes, housings, jigs and spares</h2>
+      <p class="lead">Send an STL, STEP or 3MF file, or a photo and sizes and we'll model it. We print, check the fit and deliver. Ideal for one-offs, short runs and parts that are hard to import.</p>
+      <div class="grid files" style="margin-top: 24px">
+        <div class="card"><h3>Materials</h3>
+          <div class="chips">
+            <span class="chip">PLA: prototypes, models</span><span class="chip">PETG: tough, outdoor</span><span class="chip">ABS / ASA: heat, UV</span>
+            <span class="chip">TPU: flexible, gaskets</span><span class="chip">Nylon: wear parts</span><span class="chip">Resin: fine detail</span>
+          </div></div>
+        <div class="card"><h3>Good for</h3>
+          <ul style="margin: 0; padding-left: 20px; color: var(--muted)"><li>Product prototypes and enclosures</li><li>Jigs, fixtures and drill guides</li><li>Knobs, clips, covers, brackets</li><li>Replacement plastic parts</li></ul></div>
+        <div class="card"><h3>What to send</h3>
+          <ul style="margin: 0; padding-left: 20px; color: var(--muted)"><li>File: <span class="mono">.stl .step .3mf .obj</span></li><li>Material and colour</li><li>Quantity and needed-by date</li><li>No file? A photo with a ruler</li></ul></div>
+        <div class="card"><h3>Pricing</h3>
+          <p style="color: var(--muted); margin: 0 0 10px">Priced by material, size and print time, quoted before printing. Design or modelling help is quoted separately.</p>
+          <a class="btn btn-blue btn-sm" href="#make" data-proc="3D printing">Get a 3D printing quote</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Make it -->
+  <section id="make">
+    <div class="wrap">
+      <div class="eyebrow">Make it · request a quote</div>
+      <h2>Tell us what to make</h2>
+      <p class="lead">You get a fixed price and a delivery date before anything is made.</p>
+      <div class="split">
+        <form class="card" id="make-form" novalidate>
+          <div>
+            <span id="proc-label" style="font-weight: 600; font-size: .95rem; display: block; margin-bottom: 8px">Process</span>
+            <div class="pills" role="group" aria-labelledby="proc-label" id="proc-pills">
+              <button type="button" class="pill" aria-pressed="true">CNC machining</button>
+              <button type="button" class="pill" aria-pressed="false">Laser / plasma cutting</button>
+              <button type="button" class="pill" aria-pressed="false">3D printing</button>
+              <button type="button" class="pill" aria-pressed="false">Sheet metal &amp; welding</button>
+              <button type="button" class="pill" aria-pressed="false">Gears &amp; shafts</button>
+              <button type="button" class="pill" aria-pressed="false">PCB</button>
+              <button type="button" class="pill" aria-pressed="false">Control panel</button>
+              <button type="button" class="pill" aria-pressed="false">Not sure</button>
+            </div>
+          </div>
+          <div><label for="m-part">What is the part?</label><input id="m-part" name="part" placeholder="e.g. Drive gear for bottling line, 42 teeth"></div>
+          <div class="row2">
+            <div><label for="m-qty">Quantity</label><input id="m-qty" name="qty" type="number" min="1" value="1"></div>
+            <div><label for="m-mat">Material</label>
+              <select id="m-mat" name="mat"><option>Mild steel</option><option>Stainless steel 304</option><option>Aluminium</option><option>Brass</option><option>Nylon / POM</option><option>3D print (PLA / PETG)</option><option>Not sure: advise me</option></select></div>
+          </div>
+          <div class="row2">
+            <div><label for="m-date">Needed by</label><input id="m-date" name="date" type="date"></div>
+            <div><label for="m-files">What files do you have?</label>
+              <select id="m-files" name="files"><option>3D model (STEP, STL, SolidWorks…)</option><option>2D drawing (DXF, DWG, PDF)</option><option>Electronics (Gerber, KiCad…)</option><option>Photos of the part</option><option>Sample part only</option><option>Nothing yet</option></select></div>
+          </div>
+          <div><label for="m-notes">Notes</label><textarea id="m-notes" name="notes" placeholder="Sizes, finish, tolerances, where the part is used…"></textarea></div>
+          <div class="row2">
+            <div><label for="m-name">Your name</label><input id="m-name" name="name" autocomplete="name"></div>
+            <div><label for="m-org">Company (optional)</label><input id="m-org" name="org" autocomplete="organization"></div>
+          </div>
+          <button class="btn btn-wa" type="submit">Send request on WhatsApp</button>
+          <p class="note" id="make-note">WhatsApp opens with your request filled in. Attach your drawings or photos in that chat.</p>
+        </form>
+        <aside class="grid" style="gap: 16px">
+          <div class="card">
+            <h3>Files we accept</h3>
+            <p class="note" style="margin-bottom: 10px">3D, 2D, electronics, or just photos with a ruler beside the part.</p>
+            <div class="chips">
+              <span class="chip mono">.step</span><span class="chip mono">.stl</span><span class="chip mono">.iges</span><span class="chip mono">.sldprt</span><span class="chip mono">.f3d</span>
+              <span class="chip mono">.dxf</span><span class="chip mono">.dwg</span><span class="chip mono">.pdf</span><span class="chip mono">Gerber</span><span class="chip mono">KiCad</span><span class="chip mono">.jpg / photo</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>How a job runs</h3>
+            <ol style="margin: 0; padding-left: 20px; color: var(--muted)">
+              <li>Send the request and files</li><li>Engineer reviews, fixed quote</li><li>Approve, pay deposit (MoMo or bank)</li><li>Made locally and quality-checked</li><li>Delivery in Kampala or courier upcountry</li>
+            </ol>
+          </div>
+          <div class="notice"><b>Confidential:</b> your files are shared only with the workshop making your job. NDA on request.</div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop -->
+  <section class="soft" id="shop">
+    <div class="wrap">
+      <div class="shop-top">
+        <div>
+          <div class="eyebrow">Off the shelf · genuine parts</div>
+          <h2 style="margin: 0">Shop parts</h2>
+        </div>
+        <div class="search" role="search">
+          <label for="q" class="sr">Search parts</label>
+          <input id="q" type="search" placeholder="Search: 6204, contactor, M10, cylinder…" autocomplete="off">
+        </div>
+      </div>
+      <p class="note" style="margin-top: 10px">Prices in UGX incl. VAT are indicative and confirmed on your quote. All branded items are genuine stock from certified suppliers or authorised representatives.</p>
+      <div class="shop">
+        <div class="cats" id="cats" role="group" aria-label="Categories"></div>
+        <div>
+          <div class="grid products" id="products" aria-live="polite"></div>
+          <div class="card" style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; background: #FFF6DB; border-color: #F2D27A">
+            <div><h3 style="margin: 0">Can't find a part?</h3><p class="note" style="color: #4A3A00">Send a photo or part number. We'll source it, import it or make it.</p></div>
+            <a class="btn btn-wa btn-sm" href="https://wa.me/256701475685?text=Hello%20TiS%2C%20I%27m%20looking%20for%20this%20part%3A%20" target="_blank" rel="noopener">Request sourcing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom design -->
+  <section id="custom">
+    <div class="wrap">
+      <div class="eyebrow">Custom design · engineering on demand</div>
+      <h2>No drawing? We design the part for you.</h2>
+      <p class="lead">From a worn sample, a sketch or just a problem to solve, our engineers produce production-ready designs. Keep the files, or let us make it too.</p>
+      <div class="grid services">
+        <div class="card"><h3>Reverse engineering</h3><p>We measure a broken part and rebuild it as an accurate model, strengthening where it failed.</p><span class="chip">STEP model · drawing</span></div>
+        <div class="card"><h3>Mechanical parts</h3><p>Brackets, shafts, gears, rollers, guards and mounts designed for local manufacture.</p><span class="chip">Assembly · BOM</span></div>
+        <div class="card"><h3>Enclosures &amp; housings</h3><p>Sheet-metal, 3D-printed or machined housings for electronics and products.</p><span class="chip">Model · DXF flat patterns</span></div>
+        <div class="card"><h3>Jigs &amp; fixtures</h3><p>Holding and drilling jigs that make production faster and repeatable.</p><span class="chip">Drawings · guide</span></div>
+        <div class="card"><h3>PCB &amp; electronics</h3><p>From a circuit idea to a manufacturable board, including firmware.</p><span class="chip">Schematic · Gerbers</span></div>
+        <div class="card"><h3>Control panels &amp; pneumatics</h3><p>Power, control and pneumatic schematics, panel layouts and wiring.</p><span class="chip">Schematics · layout</span></div>
+      </div>
+      <h3 style="margin-top: 40px; font-size: 1.5rem">Choose how far we take it</h3>
+      <div class="grid plans">
+        <div class="card plan"><h3>Design only</h3><p class="note">You have a maker, or will build it yourself.</p><ul><li>Measured 3D model and 2D drawings</li><li>Two rounds of changes</li><li>Files are yours on payment</li></ul></div>
+        <div class="card plan best"><span class="chip" style="align-self: flex-start; background: var(--amber); color: var(--ink)">Most chosen</span><h3>Design + make</h3><p class="note">One team from idea to finished part.</p><ul><li>Everything in Design only</li><li>Made in a verified local workshop</li><li>Fit checked against your machine</li></ul></div>
+        <div class="card plan"><h3>Spares partnership</h3><p class="note">For factories that can't afford downtime.</p><ul><li>Your critical parts designed and kept on file</li><li>Priority jobs, agreed lead times</li><li>Scheduled restocking of wear parts</li></ul></div>
+      </div>
+      <form class="card" id="design-form" style="margin-top: 28px" novalidate>
+        <h3 style="margin: 0">Design brief</h3>
+        <div class="row2">
+          <div><label for="d-type">Type of design</label><select id="d-type"><option>Reverse-engineer a part</option><option>New mechanical part</option><option>Enclosure / housing</option><option>Jig or fixture</option><option>PCB / electronics</option><option>Control panel / pneumatics</option></select></div>
+          <div><label for="d-plan">Package</label><select id="d-plan"><option>Design + make</option><option>Design only</option><option>Spares partnership</option></select></div>
+        </div>
+        <div><label for="d-what">What should it do?</label><textarea id="d-what" placeholder="e.g. A bracket to hold a 2.2 kW motor on our mixer, replacing a cracked casting"></textarea></div>
+        <div class="row2">
+          <div><label for="d-name">Your name</label><input id="d-name" autocomplete="name"></div>
+          <div><label for="d-org">Company (optional)</label><input id="d-org" autocomplete="organization"></div>
+        </div>
+        <button class="btn btn-wa" type="submit" style="justify-self: start">Send brief on WhatsApp</button>
+        <p class="note" id="design-note">Add photos, sketches or old drawings in the WhatsApp chat. The first review is free.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <div><h2 style="margin: 0 0 6px">Can't find the part? Send us a photo.</h2><p style="margin: 0; color: #3A2E00">We'll identify it, find it locally or make it, and tell you the price first.</p></div>
+      <a class="btn btn-wa" href="https://wa.me/256701475685?text=Hello%20TiS%2C%20here%20is%20a%20photo%20of%20the%20part%20I%20need%3A%20" target="_blank" rel="noopener">Send a photo on WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <img src="assets/logo-white.svg" alt="EL-SYS Controls &amp; Engineering Ltd" width="227" height="100">
+        <div>TiS · Turnkey Industrial Solutions, an EL-SYS initiative</div>
+      </div>
+      <div>
+        <div><a href="https://wa.me/256701475685" target="_blank" rel="noopener">+256 701 475 685</a></div>
+        <div>Suna Road, Kampala · serving all of Uganda</div>
+      </div>
+    </div>
+    <div class="small">© <span id="yr">2026</span> EL-SYS Controls &amp; Engineering Ltd. Brand names and logos belong to their owners and are shown to identify genuine products.</div>
+  </div>
+</footer>
+
+<!-- Order list drawer -->
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+  <div class="shade" data-close></div>
+  <div class="panel">
+    <header><h3 id="drawer-title" style="margin: 0">Your order list</h3><button class="x" type="button" data-close aria-label="Close order list">✕</button></header>
+    <div class="list" id="order-lines"></div>
+    <footer>
+      <div style="display: flex; justify-content: space-between; font-weight: 700"><span>Indicative total</span><span id="order-total">UGX 0</span></div>
+      <p class="note">Final prices and delivery are confirmed on your quote.</p>
+      <label for="o-name" class="sr">Your name</label><input id="o-name" placeholder="Your name" autocomplete="name">
+      <button class="btn btn-wa" type="button" id="send-order">Request quote on WhatsApp</button>
+    </footer>
+  </div>
+</div>
+
+<a class="wa-float" href="https://wa.me/256701475685?text=Hello%20EL-SYS%2FTiS%2C%20" target="_blank" rel="noopener" aria-label="Chat with TiS on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2C18.1 1.3 15.1 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.6-8.4z"/></svg>
+</a>
+
+<script>
+(function () {
+  var WA = 'https://wa.me/256701475685?text=';
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Phone menu
+  var menuBtn = document.querySelector('.menu-btn'), nav = document.getElementById('site-nav');
+  menuBtn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+
+  // Highlight the TiS tab for the section on screen
+  var tabs = [].slice.call(document.querySelectorAll('.subnav nav a'));
+  var secs = tabs.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var y = window.scrollY + 200, cur = 0;
+    secs.forEach(function (s, i) { if (s.offsetTop <= y) cur = i; });
+    tabs.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // ---------------- Catalogue ----------------
+  // Indicative Kampala retail incl. VAT. img: file in assets/products/shop (blank = photo coming).
+  var S = { k: 'In stock · Kampala', l: 'Local supplier · 2–5 days', i: 'Import order · 2–4 weeks' };
+  var CATS = ['Fasteners & fixings', 'Mechanical & power transmission', 'Electrical & panel', 'Control & automation', 'Pneumatics', 'Electronics & prototyping', 'Tools & consumables'];
+  var P = [
+    ['Fasteners & fixings', 'FX-HB-M10x50', 'Hex bolt M10 × 50, grade 8.8', 'ISO 4017, zinc plated, full thread', 'k', 'piece', 1000, 'Box of 100: UGX 85,000', 'fx-hb-m10x50-88'],
+    ['Fasteners & fixings', 'FX-NUT-M10-A2', 'Hex nut M10, stainless A2-70', 'ISO 4032', 'k', 'piece', 700, 'Bag of 50: UGX 30,000', 'fx-nut-m10-a2'],
+    ['Fasteners & fixings', 'FX-FAZ-M12', 'Fischer FAZ II 12/10 bolt anchor', 'M12 × 100, approved for concrete', 'l', 'piece', 12000, 'Box of 20: UGX 220,000', 'fx-faz-m12'],
+    ['Mechanical & power transmission', 'MP-SKF-6204', 'SKF 6204-2RSH ball bearing', '20 × 47 × 14 mm, sealed both sides', 'k', 'piece', 28000, '10+: UGX 25,000 each', 'mp-brg-6204-2rs'],
+    ['Mechanical & power transmission', 'MP-A42', 'Gates A42 classical V-belt', 'Section A, 1067 mm inside length', 'l', 'piece', 30000, '', 'mp-vb-a42'],
+    ['Mechanical & power transmission', 'MP-L075', 'Lovejoy L075 jaw coupling set', '2 hubs + spider, bores to 22 mm', 'i', 'set', 150000, '', 'mp-cpl-l075'],
+    ['Mechanical & power transmission', 'MP-TSLOT-4040', 'Aluminium T-slot profile 40 × 40', 'Cut to length, slot 8', 'l', 'metre', 85000, 'T-nuts and brackets available', 'mp-tslot-4040'],
+    ['Electrical & panel', 'EL-A9F44116', 'Schneider Acti9 iC60N MCB, 1P C16', '16 A, C curve, 6 kA', 'k', 'piece', 38000, '12+: UGX 34,000 each', 'el-mcb-c16-1p'],
+    ['Electrical & panel', 'EL-LC1D18P7', 'Schneider TeSys D contactor LC1D18P7', '18 A AC-3, 230 V AC coil, 1NO+1NC', 'k', 'piece', 180000, '', 'el-ct-18a-230'],
+    ['Electrical & panel', 'EL-LC1D115P7', 'Schneider TeSys D contactor LC1D115P7', '115 A AC-3, 230 V AC coil', 'i', 'piece', 1650000, '', 'el-ct-100a'],
+    ['Electrical & panel', 'EL-NSYS3D4320P', 'Schneider Spacial S3D enclosure', '400 × 300 × 200 mm, IP66, with plate', 'l', 'piece', 620000, '', 'el-enc-400x300'],
+    ['Control & automation', 'CA-ATV12HU22M2', 'Schneider Altivar 12 drive, 2.2 kW', '1-phase 230 V in, 3-phase out', 'l', 'piece', 1600000, '', 'ca-vfd-2-2-1p'],
+    ['Control & automation', 'CA-E2E-M18', 'Omron E2E inductive sensor M18', 'PNP NO, 8 mm, 10–30 V DC', 'l', 'piece', 260000, '', ''],
+    ['Control & automation', 'CA-NDR-120-24', 'Mean Well NDR-120-24 power supply', '24 V DC, 5 A, DIN rail', 'k', 'piece', 140000, '', ''],
+    ['Pneumatics', 'PN-DSBC-32x100', 'Festo DSBC ISO cylinder 32 × 100', 'ISO 15552, double acting, cushioned', 'l', 'piece', 650000, '', ''],
+    ['Pneumatics', 'PN-ADN-25x25', 'Festo ADN compact cylinder 25 × 25', 'Double acting, magnetic piston', 'l', 'piece', 320000, '', ''],
+    ['Pneumatics', 'PN-ROT-DA', 'Pneumatic rotary actuator, double acting', 'Quarter-turn, ISO 5211, for valves', 'i', 'piece', 600000, '', ''],
+    ['Pneumatics', 'PN-SY5120', 'SMC 5/2 solenoid valve SY5120', '1/4", 24 V DC coil', 'k', 'piece', 350000, '', ''],
+    ['Pneumatics', 'PN-AC20', 'SMC AC20 filter-regulator-lubricator', '1/4", with gauge', 'l', 'piece', 450000, '', ''],
+    ['Pneumatics', 'PN-PUN-8', 'Festo PUN-8 polyurethane tubing', '8 mm OD, blue', 'k', 'metre', 6000, 'Roll of 50 m: UGX 250,000', ''],
+    ['Pneumatics', 'PN-QS-1/4-8', 'Festo QS-1/4-8 push-in fitting', 'Straight, 1/4" × 8 mm tube', 'k', 'piece', 25000, 'Pack of 10: UGX 220,000', 'pn-qs-1-4-8'],
+    ['Pneumatics', 'PN-GRLA', 'Festo GRLA flow control valve', '1/4" × 8 mm', 'l', 'piece', 45000, '', ''],
+    ['Electronics & prototyping', 'EC-RLY-5V', 'Relay module 5 V, 1 channel', 'Opto-isolated, 10 A contact', 'k', 'piece', 8000, '10+: UGX 6,500 each', 'ec-rly-5v-1ch'],
+    ['Electronics & prototyping', 'EC-RES-600', 'Resistor kit, 600 pcs', '30 values, 1/4 W, 1 % metal film', 'k', 'kit', 35000, '', 'ec-res-kit'],
+    ['Electronics & prototyping', 'PR-ESP32', 'Espressif ESP32-DevKitC', 'Wi-Fi + Bluetooth', 'k', 'piece', 55000, '5+: UGX 50,000 each', 'pr-esp32-dev'],
+    ['Electronics & prototyping', 'PR-A000066', 'Arduino Uno Rev3 (genuine)', 'A000066 · ATmega328P', 'k', 'piece', 150000, '', 'pr-ard-uno'],
+    ['Tools & consumables', 'TC-BOSCH-115', 'Bosch PRO cutting disc 115 mm', '115 × 1 × 22.23 mm, stainless and metal', 'k', 'piece', 7500, 'Box of 25: UGX 170,000', 'tc-ctd-115']
+  ].map(function (r) { return { cat: r[0], sku: r[1], name: r[2], spec: r[3], s: r[4], unit: r[5], price: r[6], bulk: r[7], img: r[8] }; });
+
+  var fmt = function (n) { return 'UGX ' + Math.round(n).toLocaleString('en-US'); };
+  var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var state = { cat: 'All parts', q: '' };
+  var catsEl = document.getElementById('cats'), prodEl = document.getElementById('products'), qEl = document.getElementById('q');
+
+  function renderCats() {
+    catsEl.innerHTML = ['All parts'].concat(CATS).map(function (c) {
+      var n = c === 'All parts' ? P.length : P.filter(function (p) { return p.cat === c; }).length;
+      return '<button type="button" class="cat" aria-pressed="' + (c === state.cat) + '" data-cat="' + esc(c) + '">' + esc(c) + ' <small>' + n + '</small></button>';
+    }).join('');
+  }
+  function renderProducts() {
+    var q = state.q.toLowerCase();
+    var list = P.filter(function (p) {
+      return (state.cat === 'All parts' || p.cat === state.cat) && (!q || (p.name + ' ' + p.spec + ' ' + p.sku + ' ' + p.cat).toLowerCase().indexOf(q) >= 0);
+    });
+    prodEl.innerHTML = list.length ? list.map(function (p) {
+      var ph = p.img ? '<img src="assets/products/shop/' + p.img + '.jpg" alt="' + esc(p.name) + '" width="800" height="800" loading="lazy">' : '<span>Photo coming soon</span>';
+      return '<article class="prod"><div class="ph">' + ph + '</div><div class="body">' +
+        '<span class="mono" style="color: var(--muted)">' + esc(p.sku) + '</span>' +
+        '<h3>' + esc(p.name) + '</h3><p class="spec">' + esc(p.spec) + '</p>' +
+        '<span class="stock ' + p.s + '">' + S[p.s] + '</span>' +
+        '<div class="price">' + fmt(p.price) + ' <small>/ ' + p.unit + '</small></div>' +
+        (p.bulk ? '<p class="bulk">' + esc(p.bulk) + '</p>' : '') +
+        '<div class="add"><label class="sr" for="qty-' + esc(p.sku) + '">Quantity</label><input id="qty-' + esc(p.sku) + '" type="number" min="1" value="1">' +
+        '<button type="button" class="btn btn-blue btn-sm" data-add="' + esc(p.sku) + '">Add</button></div></div></article>';
+    }).join('') : '<div class="empty">No parts match. Try another word, or send us a photo on WhatsApp.</div>';
+  }
+  catsEl.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-cat]'); if (!b) return;
+    state.cat = b.getAttribute('data-cat'); renderCats(); renderProducts();
+  });
+  qEl.addEventListener('input', function () {
+    state.q = qEl.value.trim();
+    if (state.q && state.cat !== 'All parts') { state.cat = 'All parts'; renderCats(); }   // search the whole catalogue
+    renderProducts();
+  });
+
+  // ---------------- Order list (kept on this device only) ----------------
+  var order = {};
+  try { order = JSON.parse(localStorage.getItem('tis-order') || '{}'); } catch (e) { order = {}; }
+  var save = function () { try { localStorage.setItem('tis-order', JSON.stringify(order)); } catch (e) {} };
+  var bySku = function (s) { return P.filter(function (p) { return p.sku === s; })[0]; };
+  function renderOrder() {
+    var skus = Object.keys(order).filter(bySku), total = 0, count = 0;
+    document.getElementById('order-lines').innerHTML = skus.length ? skus.map(function (s) {
+      var p = bySku(s); total += p.price * order[s]; count += order[s];
+      return '<div class="line"><div><b>' + esc(p.name) + '</b><div class="note">' + fmt(p.price) + ' / ' + p.unit + '</div></div>' +
+        '<input type="number" min="1" value="' + order[s] + '" data-qty="' + esc(s) + '" aria-label="Quantity of ' + esc(p.name) + '">' +
+        '<button class="x" type="button" data-del="' + esc(s) + '" aria-label="Remove ' + esc(p.name) + '">✕</button></div>';
+    }).join('') : '<p class="empty">Your list is empty. Add parts from the shop.</p>';
+    document.getElementById('order-total').textContent = fmt(total);
+    document.getElementById('order-count').textContent = count;
+  }
+  prodEl.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-add]'); if (!b) return;
+    var s = b.getAttribute('data-add'), qty = Math.max(1, parseInt(document.getElementById('qty-' + s).value, 10) || 1);
+    order[s] = (order[s] || 0) + qty; save(); renderOrder();
+    b.textContent = 'Added ✓'; setTimeout(function () { b.textContent = 'Add'; }, 1200);
+  });
+  var drawer = document.getElementById('drawer');
+  document.getElementById('open-order').addEventListener('click', function () { renderOrder(); drawer.classList.add('open'); document.querySelector('.drawer .x').focus(); });
+  drawer.addEventListener('click', function (e) {
+    if (e.target.hasAttribute('data-close')) drawer.classList.remove('open');
+    var d = e.target.closest('[data-del]'); if (d) { delete order[d.getAttribute('data-del')]; save(); renderOrder(); }
+  });
+  drawer.addEventListener('change', function (e) {
+    var q = e.target.getAttribute('data-qty'); if (q) { order[q] = Math.max(1, parseInt(e.target.value, 10) || 1); save(); renderOrder(); }
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') drawer.classList.remove('open'); });
+  document.getElementById('send-order').addEventListener('click', function () {
+    var skus = Object.keys(order).filter(bySku); if (!skus.length) return;
+    var lines = ['Hello TiS, please quote these parts:'].concat(skus.map(function (s) { var p = bySku(s); return '- ' + order[s] + ' × ' + p.name + ' (' + p.sku + ')'; }));
+    var nm = document.getElementById('o-name').value.trim(); if (nm) lines.push('Name: ' + nm);
+    window.open(WA + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+  });
+
+  // ---------------- Forms → WhatsApp ----------------
+  var pills = document.getElementById('proc-pills');
+  // "Get a 3D printing quote" pre-selects 3D printing in the quote form
+  document.querySelectorAll('[data-proc]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var want = a.getAttribute('data-proc');
+      [].forEach.call(pills.children, function (x) { x.setAttribute('aria-pressed', x.textContent === want); });
+      document.getElementById('m-mat').value = '3D print (PLA / PETG)';
+    });
+  });
+  pills.addEventListener('click', function (e) {
+    var b = e.target.closest('.pill'); if (!b) return;
+    [].forEach.call(pills.children, function (x) { x.setAttribute('aria-pressed', x === b); });
+  });
+  document.getElementById('make-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target, note = document.getElementById('make-note');
+    var part = f.part.value.trim(), name = f.name.value.trim();
+    if (!part || !name) { note.textContent = 'Please describe the part and add your name.'; note.style.color = '#B42318'; return; }
+    var proc = pills.querySelector('[aria-pressed="true"]').textContent;
+    var lines = ['Hello TiS, I need a part made.', 'Part: ' + part, 'Process: ' + proc, 'Quantity: ' + f.qty.value, 'Material: ' + f.mat.value,
+      f.date.value ? 'Needed by: ' + f.date.value : '', 'Files I have: ' + f.files.value, f.notes.value.trim() ? 'Notes: ' + f.notes.value.trim() : '',
+      'Name: ' + name + (f.org.value.trim() ? ' (' + f.org.value.trim() + ')' : ''), '(I will attach my files in this chat.)'].filter(Boolean);
+    window.open(WA + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+  });
+  document.getElementById('design-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var what = document.getElementById('d-what').value.trim(), name = document.getElementById('d-name').value.trim(), note = document.getElementById('design-note');
+    if (!what || !name) { note.textContent = 'Please describe the job and add your name.'; note.style.color = '#B42318'; return; }
+    var org = document.getElementById('d-org').value.trim();
+    var lines = ['Hello TiS, I need a part designed.', 'Type: ' + document.getElementById('d-type').value, 'Package: ' + document.getElementById('d-plan').value,
+      'Job: ' + what, 'Name: ' + name + (org ? ' (' + org + ')' : ''), '(I will send photos or sketches in this chat.)'];
+    window.open(WA + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+  });
+
+  renderCats(); renderProducts(); renderOrder();
+})();
+</script>
+</body>
+</html>
