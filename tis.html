@@ -12,37 +12,43 @@
 <meta property="og:image" content="assets/illustrations/tis-made-in-uganda.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  /* TiS identity (TIS-ID-V1.0): Forest Green structure, Sage surfaces, Industrial Ochre accent (≈10%), Slate text.
+     The EL-SYS header and footer keep EL-SYS Blue, since TiS is an EL-SYS initiative. */
   :root {
-    --blue: #1B507C; --blue-dark: #12395A; --blue-tint: #EAF1F7; --amber: #F2A900; --ink: #142233;
-    --muted: #536274; --line: #D9E1EA; --bg-soft: #F5F8FB; --wa: #1FA855; --radius: 14px; --max: 1200px;
+    --forest: #123326; --spruce: #275240; --sage: #EEF3F0; --ochre: #C48236; --ochre-hover: #D39446; --slate: #0F172A;
+    --blue: #275240; --blue-dark: #123326; --blue-tint: #E3EBE6; --amber: #C48236; --ink: #0F172A;
+    --elsys-blue: #1C4F7B; --elsys-blue-dark: #163F63;
+    --muted: #475569; --line: #D6DFDA; --bg-soft: #EEF3F0; --wa: #1FA855; --radius: 14px; --max: 1200px;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 17px; line-height: 1.55; color: var(--ink); background: #fff; }
-  h1, h2, h3 { font-family: "Saira", "Segoe UI", sans-serif; line-height: 1.15; margin: 0 0 .45em; }
-  h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; }
-  h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 700; }
-  h3 { font-size: 1.15rem; font-weight: 600; }
+  body { margin: 0; font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 16.5px; line-height: 1.6; color: var(--ink); background: #fff; }
+  h1, h2, h3 { font-family: "Space Grotesk", "Segoe UI", sans-serif; line-height: 1.15; margin: 0 0 .45em; color: var(--forest); }
+  .dark h1, .dark h2, .dark h3 { color: #fff; }
+  h1 { font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 700; letter-spacing: -.01em; }
+  h2 { font-size: clamp(1.45rem, 3vw, 2.05rem); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+  h3 { font-size: 1.12rem; font-weight: 600; }
   p { margin: 0 0 1em; }
   a { color: var(--blue); }
   img { max-width: 100%; height: auto; display: block; }
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
   section { padding: 68px 0; scroll-margin-top: 124px; }
-  .eyebrow { font-family: "Saira", sans-serif; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; font-size: .8rem; color: var(--blue); margin-bottom: .6em; }
+  .eyebrow { font-family: "Space Grotesk", sans-serif; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; font-size: .78rem; color: var(--spruce); margin-bottom: .7em; }
+  .eyebrow::before { content: ""; display: inline-block; width: 28px; height: 4px; background: var(--ochre); border-radius: 2px; vertical-align: middle; margin: -2px 10px 0 0; }
   .lead { font-size: 1.12rem; color: var(--muted); max-width: 660px; }
   .soft { background: var(--bg-soft); }
-  .dark { background: var(--ink); color: #fff; }
-  .dark .eyebrow { color: var(--amber); }
-  .dark .lead { color: rgba(255,255,255,.82); }
+  .dark { background: var(--forest); color: #fff; }
+  .dark .eyebrow { color: #E7C9A3; }
+  .dark .lead { color: rgba(255,255,255,.84); }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   /* Buttons */
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5em; min-height: 48px; padding: 0 22px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 2px solid transparent; cursor: pointer; font-size: 1rem; font-family: inherit; }
   .btn svg { width: 20px; height: 20px; flex: none; }
-  .btn-amber { background: var(--amber); color: var(--ink); } .btn-amber:hover { background: #ffbc1f; }
-  .btn-blue { background: var(--blue); color: #fff; } .btn-blue:hover { background: var(--blue-dark); }
+  .btn-amber { background: var(--ochre); color: var(--slate); } .btn-amber:hover { background: var(--ochre-hover); }
+  .btn-blue { background: var(--forest); color: #fff; } .btn-blue:hover { background: var(--spruce); }
   .btn-ghost { border-color: rgba(255,255,255,.6); color: #fff; } .btn-ghost:hover { background: rgba(255,255,255,.1); }
   .btn-line { border-color: #B9C6D3; color: var(--ink); background: #fff; } .btn-line:hover { border-color: var(--blue); }
   .btn-wa { background: var(--wa); color: #fff; } .btn-wa:hover { filter: brightness(.95); }
@@ -54,7 +60,7 @@
   .nav .logo img { height: 38px; width: auto; }
   .nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }
   .nav ul a { text-decoration: none; color: var(--ink); font-weight: 600; }
-  .nav ul a:hover, .nav ul a[aria-current] { color: var(--blue); }
+  .nav ul a:hover, .nav ul a[aria-current] { color: var(--elsys-blue); }
   .menu-btn { display: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 10px; background: #fff; cursor: pointer; place-items: center; }
   .menu-btn svg { width: 24px; height: 24px; }
   @media (max-width: 860px) {
@@ -68,18 +74,21 @@
   @media (max-width: 420px) { .nav .btn span { display: none; } .nav .btn { padding: 0 12px; } }
 
   /* TiS sub-navigation */
-  .subnav { position: sticky; top: 64px; z-index: 25; background: var(--blue-dark); }
-  .subnav .wrap { display: flex; align-items: center; gap: 14px; min-height: 58px; }
-  .tis-badge { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 9px; background: var(--amber); color: var(--ink); font-family: "Saira", sans-serif; font-weight: 700; }
-  .subnav nav { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; flex: 1 1 auto; }
+  .subnav { position: sticky; top: 64px; z-index: 25; background: var(--forest); }
+  .subnav .wrap { display: flex; align-items: center; gap: 18px; min-height: 60px; }
+  .tis-logo { flex: none; display: block; }
+  .tis-logo img { height: 34px; width: auto; display: block; }
+  .tis-logo .mark { display: none; height: 36px; }
+  .subnav nav { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; flex: 1 1 auto; align-self: stretch; }
   .subnav nav::-webkit-scrollbar { display: none; }
-  .subnav nav a { flex: none; display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; color: #D7E2EC; text-decoration: none; font-weight: 600; white-space: nowrap; }
-  .subnav nav a:hover { color: #fff; background: rgba(255,255,255,.08); }
-  .subnav nav a.on { background: var(--amber); color: var(--ink); }
-  .order-btn { flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 0; background: #fff; color: var(--ink); font: inherit; font-weight: 700; cursor: pointer; }
+  .subnav nav a { flex: none; display: inline-flex; align-items: center; min-height: 60px; padding: 0 14px; color: #CFDDD5; text-decoration: none; font-weight: 600; font-size: .95rem; white-space: nowrap; border-bottom: 3px solid transparent; }
+  .subnav nav a:hover { color: #fff; background: rgba(255,255,255,.06); }
+  .subnav nav a.on { color: #fff; border-bottom-color: var(--ochre); }
+  .order-btn { flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 0; background: #fff; color: var(--forest); font: inherit; font-weight: 700; cursor: pointer; }
   .order-btn svg { width: 20px; height: 20px; }
-  .order-btn .count { min-width: 22px; height: 22px; border-radius: 11px; background: var(--amber); display: inline-grid; place-items: center; font-size: .8rem; padding: 0 6px; }
-  @media (max-width: 560px) { .order-btn .label { display: none; } .tis-badge { display: none; } }
+  .order-btn .count { min-width: 22px; height: 22px; border-radius: 11px; background: var(--ochre); color: var(--slate); display: inline-grid; place-items: center; font-size: .8rem; padding: 0 6px; }
+  @media (max-width: 900px) { .tis-logo .full { display: none; } .tis-logo .mark { display: block; } }
+  @media (max-width: 560px) { .order-btn .label { display: none; } .subnav .wrap { gap: 10px; } }
 
   /* Hero */
   .hero { padding: 64px 0 72px; }
@@ -88,7 +97,7 @@
   .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 26px; }
   .trust { display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 0; margin: 0; list-style: none; color: rgba(255,255,255,.85); font-size: .95rem; }
   .trust li { display: flex; align-items: center; gap: 8px; }
-  .trust li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
+  .trust li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ochre); }
   .hero figure { margin: 0; background: #fff; border-radius: 16px; padding: 10px; box-shadow: 0 20px 50px rgba(0,0,0,.3); }
   .hero figcaption { color: var(--muted); font-size: .85rem; padding: 6px 4px 0; }
 
@@ -96,8 +105,8 @@
   .grid { display: grid; gap: 18px; }
   .ways { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 28px; }
   .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
-  .way { display: flex; flex-direction: column; gap: 10px; border-top: 4px solid var(--amber); }
-  .way.b { border-top-color: var(--blue); } .way.g { border-top-color: var(--wa); }
+  .way { display: flex; flex-direction: column; gap: 10px; border-top: 4px solid var(--forest); }
+  .way.b { border-top-color: var(--spruce); } .way.g { border-top-color: var(--ochre); }
   .way ul { margin: 0; padding-left: 20px; color: var(--muted); }
   .way .btn { align-self: flex-start; margin-top: auto; }
   .chips { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -105,10 +114,10 @@
   .mono { font-family: ui-monospace, Consolas, monospace; font-size: .78rem; }
   .files { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-top: 24px; }
   .procs { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 24px; }
-  .proc { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); padding: 18px; }
-  .proc p { color: #C9D6E2; margin: 0; font-size: .95rem; }
+  .proc { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); border-radius: var(--radius); padding: 18px; }
+  .proc p { color: #D2E0D8; margin: 0; font-size: .95rem; }
   .steps { list-style: none; padding: 0; margin: 24px 0 0; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
-  .steps .n { width: 38px; height: 38px; border-radius: 50%; background: var(--blue); color: #fff; display: grid; place-items: center; font-family: "Saira", sans-serif; font-weight: 700; margin-bottom: 10px; }
+  .steps .n { width: 38px; height: 38px; border-radius: 50%; background: var(--forest); color: #fff; display: grid; place-items: center; font-family: "Space Grotesk", sans-serif; font-weight: 700; margin-bottom: 10px; }
   .steps p { color: var(--muted); margin: 0; font-size: .95rem; }
 
   /* Forms */
@@ -117,13 +126,13 @@
   @media (min-width: 620px) { .row2 { grid-template-columns: 1fr 1fr; } }
   label { font-weight: 600; font-size: .95rem; display: block; margin-bottom: 6px; }
   input, select, textarea { width: 100%; font: inherit; padding: 11px 12px; border: 1px solid #B9C6D3; border-radius: 9px; background: #fff; color: var(--ink); min-height: 46px; }
-  input:focus, select:focus, textarea:focus { outline: 3px solid rgba(27,80,124,.25); border-color: var(--blue); }
+  input:focus, select:focus, textarea:focus { outline: 3px solid rgba(39,82,64,.25); border-color: var(--spruce); }
   textarea { min-height: 100px; resize: vertical; }
   .pills { display: flex; flex-wrap: wrap; gap: 8px; }
   .pill { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid #B9C6D3; background: #fff; font: inherit; font-weight: 600; font-size: .95rem; color: var(--ink); cursor: pointer; }
-  .pill[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .pill[aria-pressed="true"] { background: var(--forest); border-color: var(--forest); color: #fff; }
   .note { font-size: .92rem; color: var(--muted); margin: 0; }
-  .notice { padding: 14px 16px; border-radius: 12px; background: #FFF6DB; color: #4A3A00; font-size: .95rem; }
+  .notice { padding: 14px 16px; border-radius: 12px; background: var(--sage); border-left: 4px solid var(--ochre); color: var(--slate); font-size: .95rem; }
   .split { display: grid; gap: 24px; grid-template-columns: 1fr; align-items: start; margin-top: 24px; }
   @media (min-width: 960px) { .split { grid-template-columns: 1.5fr 1fr; } }
 
@@ -135,10 +144,10 @@
   @media (min-width: 980px) { .shop { grid-template-columns: 270px 1fr; } }
   .cats { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
   .cats::-webkit-scrollbar { display: none; }
-  @media (min-width: 980px) { .cats { flex-direction: column; overflow: visible; position: sticky; top: 140px; } }
+  @media (min-width: 980px) { .cats { flex-direction: column; overflow: visible; position: sticky; top: 140px; } .cats .cat { white-space: normal; padding: 8px 14px; } }
   .cat { flex: none; display: flex; justify-content: space-between; align-items: center; gap: 10px; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; font: inherit; font-weight: 600; font-size: .95rem; color: var(--ink); text-align: left; cursor: pointer; white-space: nowrap; }
-  .cat:hover { border-color: var(--blue); }
-  .cat[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .cat:hover { border-color: var(--spruce); }
+  .cat[aria-pressed="true"] { background: var(--forest); border-color: var(--forest); color: #fff; }
   .cat small { opacity: .75; font-weight: 600; }
   .products { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); align-content: start; }
   @media (max-width: 520px) { .products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
@@ -146,12 +155,12 @@
   .prod .ph { aspect-ratio: 1 / 1; background: #D6D6D6; display: grid; place-items: center; color: #5E6E7E; font-weight: 600; font-size: .85rem; text-align: center; }
   .prod .ph img { width: 100%; height: 100%; object-fit: cover; }
   .prod .body { padding: 14px; display: flex; flex-direction: column; gap: 6px; flex: 1 1 auto; }
-  .prod h3 { font-family: "Source Sans 3", sans-serif; font-weight: 700; font-size: 1rem; margin: 0; }
+  .prod h3 { font-family: "Inter", sans-serif; font-weight: 600; font-size: .98rem; margin: 0; color: var(--slate); }
   .prod .spec { color: var(--muted); font-size: .88rem; margin: 0; }
   .stock { align-self: flex-start; padding: 2px 9px; border-radius: 999px; font-size: .75rem; font-weight: 700; }
   .stock.k { background: #E3F3EA; color: #16663A; } .stock.l { background: var(--blue-tint); color: var(--blue-dark); } .stock.i { background: #FFF1D6; color: #7A4D00; }
-  .price { font-family: "Saira", sans-serif; font-weight: 700; font-size: 1.15rem; margin-top: auto; padding-top: 6px; }
-  .price small { font-family: "Source Sans 3", sans-serif; font-weight: 400; color: var(--muted); font-size: .8rem; }
+  .price { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--forest); margin-top: auto; padding-top: 6px; }
+  .price small { font-family: "Inter", sans-serif; font-weight: 400; color: var(--muted); font-size: .8rem; }
   .bulk { color: var(--muted); font-size: .8rem; margin: 0; }
   .add { display: flex; gap: 6px; }
   .add input { width: 64px; min-height: 44px; padding: 0 8px; }
@@ -174,15 +183,16 @@
   /* Packages & library */
   .plans { grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); margin-top: 24px; }
   .plan { display: flex; flex-direction: column; gap: 10px; }
-  .plan.best { border: 2px solid var(--blue); }
+  .plan.best { border: 2px solid var(--forest); }
   .plan ul { margin: 0; padding-left: 20px; color: var(--muted); }
   .services { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 24px; }
   .services .card p { color: var(--muted); margin: 0 0 8px; }
 
   /* CTA + footer */
-  .cta { background: var(--amber); padding: 56px 0; }
+  .cta { background: var(--spruce); color: #fff; padding: 56px 0; }
+  .cta h2 { color: #fff; }
   .cta .wrap { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
-  footer.site { background: var(--blue-dark); color: rgba(255,255,255,.8); padding: 40px 0 28px; font-size: .95rem; }
+  footer.site { background: var(--elsys-blue-dark); color: rgba(255,255,255,.8); padding: 40px 0 28px; font-size: .95rem; }
   footer.site .cols { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; }
   footer.site img { height: 44px; width: auto; margin-bottom: 10px; }
   footer.site a { color: #fff; display: inline-block; min-height: 44px; line-height: 44px; }
@@ -214,7 +224,10 @@
 
 <div class="subnav">
   <div class="wrap">
-    <span class="tis-badge" aria-hidden="true">TiS</span>
+    <a class="tis-logo" href="#overview" aria-label="Turnkey Industrial Solutions (TiS)">
+      <img class="full" src="assets/tis/tis-logo-white.png" alt="Turnkey Industrial Solutions" width="517" height="120">
+      <img class="mark" src="assets/tis/tis-mark-white.png" alt="TiS" width="119" height="160">
+    </a>
     <nav aria-label="TiS sections">
       <a href="#overview" class="on">Overview</a>
       <a href="#print3d">3D printing</a>
@@ -284,7 +297,7 @@
     </div>
   </section>
 
-  <section class="dark" style="background: var(--blue-dark)">
+  <section class="dark" style="background: var(--spruce)">
     <div class="wrap">
       <div class="eyebrow">What the TiS network can make</div>
       <h2>Processes</h2>
@@ -403,8 +416,8 @@
         <div class="cats" id="cats" role="group" aria-label="Categories"></div>
         <div>
           <div class="grid products" id="products" aria-live="polite"></div>
-          <div class="card" style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; background: #FFF6DB; border-color: #F2D27A">
-            <div><h3 style="margin: 0">Can't find a part?</h3><p class="note" style="color: #4A3A00">Send a photo or part number. We'll source it, import it or make it.</p></div>
+          <div class="card" style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; background: #fff; border-left: 4px solid var(--ochre)">
+            <div><h3 style="margin: 0">Can't find a part?</h3><p class="note">Send a photo or part number. We'll source it, import it or make it.</p></div>
             <a class="btn btn-wa btn-sm" href="https://wa.me/256701475685?text=Hello%20TiS%2C%20I%27m%20looking%20for%20this%20part%3A%20" target="_blank" rel="noopener">Request sourcing</a>
           </div>
         </div>
@@ -429,7 +442,7 @@
       <h3 style="margin-top: 40px; font-size: 1.5rem">Choose how far we take it</h3>
       <div class="grid plans">
         <div class="card plan"><h3>Design only</h3><p class="note">You have a maker, or will build it yourself.</p><ul><li>Measured 3D model and 2D drawings</li><li>Two rounds of changes</li><li>Files are yours on payment</li></ul></div>
-        <div class="card plan best"><span class="chip" style="align-self: flex-start; background: var(--amber); color: var(--ink)">Most chosen</span><h3>Design + make</h3><p class="note">One team from idea to finished part.</p><ul><li>Everything in Design only</li><li>Made in a verified local workshop</li><li>Fit checked against your machine</li></ul></div>
+        <div class="card plan best"><span class="chip" style="align-self: flex-start; background: var(--ochre); color: var(--slate)">Most chosen</span><h3>Design + make</h3><p class="note">One team from idea to finished part.</p><ul><li>Everything in Design only</li><li>Made in a verified local workshop</li><li>Fit checked against your machine</li></ul></div>
         <div class="card plan"><h3>Spares partnership</h3><p class="note">For factories that can't afford downtime.</p><ul><li>Your critical parts designed and kept on file</li><li>Priority jobs, agreed lead times</li><li>Scheduled restocking of wear parts</li></ul></div>
       </div>
       <form class="card" id="design-form" style="margin-top: 28px" novalidate>
@@ -451,7 +464,7 @@
 
   <section class="cta">
     <div class="wrap">
-      <div><h2 style="margin: 0 0 6px">Can't find the part? Send us a photo.</h2><p style="margin: 0; color: #3A2E00">We'll identify it, find it locally or make it, and tell you the price first.</p></div>
+      <div><h2 style="margin: 0 0 6px">Can't find the part? Send us a photo.</h2><p style="margin: 0; color: rgba(255,255,255,.86)">We'll identify it, find it locally or make it, and tell you the price first.</p></div>
       <a class="btn btn-wa" href="https://wa.me/256701475685?text=Hello%20TiS%2C%20here%20is%20a%20photo%20of%20the%20part%20I%20need%3A%20" target="_blank" rel="noopener">Send a photo on WhatsApp</a>
     </div>
   </section>
