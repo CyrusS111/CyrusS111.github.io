@@ -29,7 +29,7 @@ const InvoicePDF = (() => {
         if (!stored[n]) { delete stored[n]; break; }
       }
       await Vault.setFonts(stored);
-      if (!FONTS.every(f => stored[f[0]])) throw new Error('PDF fonts are not on this device yet. On the laptop, open Settings → "Upload fonts to GitHub", then try again here (needs internet once).');
+      if (!FONTS.every(f => stored[f[0]])) throw new Error('PDF fonts are not on this device yet. On the laptop, open Settings → "Upload fonts to cloud", then try again here (needs internet once).');
     }
     const fonts = FONTS.map(f => toBinary(stored[f[0]]));
     const [header, logo] = await Promise.all([get('assets/header.png'), get('assets/logo.png')]);

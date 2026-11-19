@@ -3,9 +3,6 @@
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-// A string argument for an inline onclick="fn(...)": a JSON string literal, HTML-escaped for the attribute.
-// (esc alone is not enough there: the browser decodes &#39; back to ' before running the code.)
-const jsArg = v => esc(JSON.stringify(String(v ?? '')));
 const money = n => Math.round(Number(n) || 0).toLocaleString('en-US');
 const localIso = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
 const today = () => localIso(new Date());
@@ -65,7 +62,7 @@ function authScreen(which, sub) {
 }
 async function showAuth() {
   const d = await Vault.loadDevice();
-  if (!d) return authScreen('connect', 'Connect this device to your private GitHub repository');
+  if (!d) return authScreen('connect', 'Connect this device to your secure cloud storage');
   $('#login-repo').textContent = d.owner + '/' + d.repo;
   $('#login-token-wrap').classList.add('hidden');
   authScreen('login', 'Sign in to continue');
@@ -90,7 +87,7 @@ $('#connect-form').addEventListener('submit', async e => {
     const { exists } = await Vault.connect(f.owner.value, f.repo.value, f.token.value);
     err.textContent = '';
     if (exists) { $('#login-repo').textContent = f.owner.value.trim() + '/' + f.repo.value.trim(); authScreen('login', 'Connected. Sign in with your app username and password'); }
-    else authScreen('setup', 'Connected. The repository has no data yet: create the first account');
+    else authScreen('setup', 'Connected. The data store is empty: create the first account');
   } catch (x) { err.textContent = x.message; }
 });
 $('#setup-form').addEventListener('submit', async e => {
@@ -102,7 +99,7 @@ $('#setup-form').addEventListener('submit', async e => {
     await Vault.create(f.u.value.trim(), f.p.value, Store.dump());
     err.textContent = '';
     enterApp({ files: Store.dump(), online: true });
-    toast('Account created and saved to GitHub (encrypted).');
+    toast('Account created and saved to the cloud (encrypted).');
   } catch (x) { err.textContent = x.message; }
 });
 $('#login-form').addEventListener('submit', async e => {
@@ -113,7 +110,7 @@ $('#login-form').addEventListener('submit', async e => {
     if (x.needToken) { $('#login-token-wrap').classList.remove('hidden'); f.token.focus(); }
   }
 });
-$('#reconnect-link').onclick = e => { e.preventDefault(); authScreen('connect', 'Connect this device to your private GitHub repository'); };
+$('#reconnect-link').onclick = e => { e.preventDefault(); authScreen('connect', 'Connect this device to your secure cloud storage'); };
 async function lock() {
   // upload anything pending first (it is safe on this device either way)
   if (Vault.user) await Promise.race([Vault.flush().catch(() => {}), new Promise(r => setTimeout(r, 5000))]);
@@ -134,7 +131,7 @@ Vault.onMerge((remoteFiles, mode) => {
 Vault.onKicked(msg => { lock(); toast(msg); });
 Vault.onStatus(s => {
   const el = $('#sync'); if (!el) return;
-  const txt = { synced: 'Saved to GitHub', saving: 'Saving…', offline: s.pending ? 'Offline · changes waiting' : 'Offline', error: 'Sync problem' }[s.state];
+  const txt = { synced: 'Saved to cloud', saving: 'Saving…', offline: s.pending ? 'Offline · changes waiting' : 'Offline', error: 'Sync problem' }[s.state];
   el.textContent = txt; el.dataset.state = s.state;
   el.title = s.state === 'error' ? s.message + ' (click to retry)' : s.lastSync ? 'Last synced ' + s.lastSync.toLocaleTimeString() : '';
 });
@@ -186,10 +183,10 @@ VIEWS.dashboard = () => {
       <div class="card"><h3 style="margin-bottom:10px">Low stock</h3>${low.length ? `<table><tbody>${low.map(s => `
         <tr><td>${esc(s.name)} <span class="muted">${esc(s.specification)}</span></td>
         <td class="num">${esc(s.qty)} ${esc(s.uom)}</td>
-        <td class="actions"><button class="btn small" onclick="replenishDlg(${jsArg(s.sku)})">Replenish</button></td></tr>`).join('')}</tbody></table>`
+        <td class="actions"><button class="btn small" onclick="replenishDlg('${esc(s.sku)}')">Replenish</button></td></tr>`).join('')}</tbody></table>`
         : '<p class="muted">Everything is above its reorder level.</p>'}</div>
       <div class="card"><h3 style="margin-bottom:10px">Recent activity</h3>${recent.length ? `<table><tbody>${recent.map(i => `
-        <tr style="cursor:pointer" onclick="go(${jsArg('editor/' + i.number)})"><td>${esc(i.number)}<div class="muted" style="font-size:13px">${esc(i.client_company || i.client_name)}</div></td>
+        <tr style="cursor:pointer" onclick="go('editor/${esc(i.number)}')"><td>${esc(i.number)}<div class="muted" style="font-size:13px">${esc(i.client_company || i.client_name)}</div></td>
         <td class="num">${money(i.grand_total)}</td><td>${statusPill(i.status)}</td></tr>`).join('')}</tbody></table>`
         : '<p class="muted">No invoices or quotations yet.</p>'}</div>
     </div>`;
@@ -213,7 +210,7 @@ VIEWS.stock = () => {
       return `<tr><td class="muted hide-sm">${esc(s.sku)}</td><td>${esc(s.name)}</td><td>${esc(s.specification)}</td>
         <td class="num">${low ? `<span class="pill bad">${esc(s.qty)}</span>` : esc(s.qty)}</td><td>${esc(s.uom)}</td>
         <td class="num">${money(s.unit_cost)}</td><td class="num hide-sm">${esc(s.reorder_level)}</td>
-        <td class="actions"><button class="btn small primary" onclick="replenishDlg(${jsArg(s.sku)})">Replenish</button><button class="btn small" onclick="stockDlg(${jsArg(s.sku)})">Edit</button><button class="btn small danger" onclick="deleteStock(${jsArg(s.sku)})">Delete</button></td></tr>`;
+        <td class="actions"><button class="btn small primary" onclick="replenishDlg('${esc(s.sku)}')">Replenish</button><button class="btn small" onclick="stockDlg('${esc(s.sku)}')">Edit</button><button class="btn small danger" onclick="deleteStock('${esc(s.sku)}')">Delete</button></td></tr>`;
     }).join('') : `<tr><td colspan="8" class="empty">${q ? 'Nothing matches your search.' : 'No stock yet. Add your first item.'}</td></tr>`;
   };
   $('#stock-q').oninput = render; render();
@@ -281,7 +278,7 @@ VIEWS.invoices = () => {
       return `<tr><td style="white-space:nowrap"><a href="#editor/${esc(i.number)}">${esc(i.number)}</a><div class="muted" style="font-size:12px">${esc(i.type)}${i.converted_to ? ' → ' + esc(i.converted_to) : ''}</div></td>
       <td style="white-space:nowrap">${esc(InvoicePDF.fmtDate(i.date))}</td><td>${esc(i.client_company || i.client_name)}<div class="muted" style="font-size:12px">${esc(i.description)}</div></td>
       <td class="num">${money(i.grand_total)}</td><td class="num hide-sm">${bal == null ? '' : money(bal)}</td><td>${statusPill(i.status)}</td>
-      <td class="actions"><button class="btn small" onclick="pdfFor(${jsArg(i.number)})">PDF</button><button class="btn small" onclick="statusDlg(${jsArg(i.number)})">Status</button></td></tr>`;
+      <td class="actions"><button class="btn small" onclick="pdfFor('${esc(i.number)}')">PDF</button><button class="btn small" onclick="statusDlg('${esc(i.number)}')">Status</button></td></tr>`;
     }).join('') : `<tr><td colspan="7" class="empty">${q || ty || st ? 'Nothing matches.' : 'No invoices or quotations yet.'}</td></tr>`;
   };
   ['inv-q', 'inv-type', 'inv-status'].forEach(id => $('#' + id).oninput = render); render();
@@ -425,10 +422,10 @@ VIEWS.settings = () => {
   $('#main').innerHTML = `
     <div class="view-head"><h2>Settings</h2></div>
     <div class="grid" style="gap:16px">
-      <div class="card"><h3 style="margin-bottom:6px">Sync with GitHub</h3>
-        <p class="muted" style="margin:0 0 12px;font-size:14px">Data repository: <b>${esc(Vault.device.owner + '/' + Vault.device.repo)}</b> (private). Changes are saved on this device straight away and uploaded,
+      <div class="card"><h3 style="margin-bottom:6px">Cloud sync</h3>
+        <p class="muted" style="margin:0 0 12px;font-size:14px">Data store: <b>${esc(Vault.device.repo)}</b> (private, encrypted). Changes are saved on this device straight away and uploaded,
           encrypted, within seconds when online. Other devices' changes are downloaded every minute. Offline sign-in works for ${Vault.OFFLINE_DAYS} days after the last online check.
-          GitHub keeps every saved version under <i>data/elsys.vault → History</i>.</p>
+          Every saved version is kept in the cloud history, so nothing is lost.</p>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <button class="btn primary" id="sync-now">Sync now</button>
           <button class="btn" id="bk-dl">Download extra backup</button>
@@ -439,10 +436,10 @@ VIEWS.settings = () => {
       <div class="card"><h3 style="margin-bottom:6px">PDF fonts</h3>
         <p class="muted" style="margin:0 0 12px;font-size:14px" id="font-status">Checking…</p>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button class="btn" id="font-up">Upload fonts to GitHub (once, from the laptop)</button>
+          <button class="btn" id="font-up">Upload fonts to cloud (once, from the laptop)</button>
           <label class="btn" style="display:inline-flex;align-items:center">Load font files (.ttf)<input type="file" id="font-in" accept=".ttf" multiple hidden></label>
         </div>
-        <p class="muted" style="margin:10px 0 0;font-size:13px">Fonts are kept in your private data repository, never on the public app address. Needed files (from C:\\Windows\\Fonts): ${InvoicePDF.FONT_FILES.join(', ')}</p></div>
+        <p class="muted" style="margin:10px 0 0;font-size:13px">Fonts are kept in your private cloud storage, never on the public app address. Needed files (from C:\\Windows\\Fonts): ${InvoicePDF.FONT_FILES.join(', ')}</p></div>
 
       <div class="card"><h3 style="margin-bottom:12px">Payment details printed on documents</h3><div class="form-grid">
         ${field('pay_bank', 'Bank line')}${field('pay_account', 'Account number')}
@@ -460,9 +457,9 @@ VIEWS.settings = () => {
 
       <div class="card"><h3 style="margin-bottom:12px">Users</h3>
         <div class="table-wrap" style="margin-bottom:12px"><table><tbody>${Vault.users.map(u => `<tr><td>${esc(u.name)}</td><td>${u.admin ? '<span class="pill">Admin</span>' : ''}</td>
-          <td class="actions">${admin && u.name.toLowerCase() !== Vault.user.u ? `<button class="btn small danger" onclick="removeUser(${jsArg(u.name)})">Remove</button>` : ''}</td></tr>`).join('')}</tbody></table></div>
+          <td class="actions">${admin && u.name.toLowerCase() !== Vault.user.u ? `<button class="btn small danger" onclick="removeUser('${esc(u.name)}')">Remove</button>` : ''}</td></tr>`).join('')}</tbody></table></div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">${admin ? '<button class="btn" id="add-user">Add user</button>' : ''}<button class="btn" id="chg-pw">Change my password</button></div>
-        <p class="muted" style="margin:10px 0 0;font-size:13px">User changes need an internet connection and apply on every device at its next sync. A new user signs in on a device with the GitHub token the first time.</p></div>
+        <p class="muted" style="margin:10px 0 0;font-size:13px">User changes need an internet connection and apply on every device at its next sync. A new user signs in on a device with the access key the first time.</p></div>
 
       <div class="card"><h3 style="margin-bottom:6px">Export for Excel</h3>
         <p class="muted" style="margin:0 0 12px;font-size:14px">Plain, unencrypted CSV copies. Keep them somewhere private.</p>
@@ -480,14 +477,14 @@ VIEWS.settings = () => {
     const missing = InvoicePDF.FONT_FILES.filter(n => !f[n]);
     if (missing.length) { try { await InvoicePDF.loadAssets(); return fontStatus(); } catch { /* not on this device */ } }
     const el = $('#font-status'); if (!el) return;
-    el.innerHTML = missing.length ? `<span style="color:var(--bad)">Missing on this device: ${esc(missing.join(', '))}.</span> PDFs can't be made until they are added: upload them to GitHub from the laptop, or load the files here.`
+    el.innerHTML = missing.length ? `<span style="color:var(--bad)">Missing on this device: ${esc(missing.join(', '))}.</span> PDFs can't be made until they are added: upload them to the cloud from the laptop, or load the files here.`
       : '<span style="color:var(--ok)">All PDF fonts are saved on this device.</span>';
   };
-  $('#sync-now').onclick = async () => { await Vault.syncNow(); toast(Vault.online ? 'Synced with GitHub' : 'Offline: will sync when connected'); };
+  $('#sync-now').onclick = async () => { await Vault.syncNow(); toast(Vault.online ? 'Synced' : 'Offline: will sync when connected'); };
   $('#font-up').onclick = async () => {
     const f = (await Vault.getFonts()) || {};
     if (!InvoicePDF.FONT_FILES.every(n => f[n])) return toast('This device does not have all the fonts yet');
-    try { toast('Uploading fonts…'); await Vault.uploadFonts(f); toast('Fonts are in your private repository'); }
+    try { toast('Uploading fonts…'); await Vault.uploadFonts(f); toast('Fonts are saved in your cloud storage'); }
     catch (err) { toast(err.message); }
   };
   fontStatus();

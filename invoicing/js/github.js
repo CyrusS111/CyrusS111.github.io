@@ -12,10 +12,10 @@ const GitHub = (() => {
 
   function httpError(r) {
     const msg = {
-      401: 'GitHub rejected the access token (wrong, expired or revoked).',
-      403: 'GitHub refused access. The token needs "Contents: Read and write" on this repository.',
-      404: 'Repository not found. Check the username and repository name, and that the token includes this repository.',
-    }[r.status] || `GitHub error ${r.status}.`;
+      401: 'Cloud storage rejected the access key (wrong, expired or revoked).',
+      403: 'Access refused. The access key needs read and write permission for this data store.',
+      404: 'Data store not found. Check the account ID and data store name, and that the access key includes it.',
+    }[r.status] || `Cloud storage error ${r.status}.`;
     const e = new Error(msg); e.status = r.status; return e;
   }
   async function call(url, opts = {}, timeout = 20000) {
@@ -26,7 +26,7 @@ const GitHub = (() => {
         headers: { Authorization: 'Bearer ' + cfg.token, 'X-GitHub-Api-Version': '2022-11-28', Accept: 'application/vnd.github+json', ...(opts.headers || {}) },
       });
     } catch {
-      const e = new Error('No connection to GitHub.'); e.offline = true; throw e;
+      const e = new Error('No connection to cloud storage.'); e.offline = true; throw e;
     } finally { clearTimeout(t); }
   }
 
@@ -38,7 +38,7 @@ const GitHub = (() => {
       const r = await call(repoUrl());
       if (!r.ok) throw httpError(r);
       const j = await r.json();
-      if (!j.private) throw new Error('This repository is public. Make it private on GitHub (Settings → General → Danger Zone → Change visibility) and try again.');
+      if (!j.private) throw new Error('This data store is public. Make it private and try again.');
       return j;
     },
     // Returns { sha, bytes } or null when the file does not exist yet.
@@ -59,7 +59,7 @@ const GitHub = (() => {
         body: JSON.stringify({ message, content: toB64(bytes), ...(sha ? { sha } : {}) }),
       }, 90000);
       if (r.status === 409 || (r.status === 422 && sha) || (r.status === 422 && !sha)) {
-        const e = new Error('The file changed on GitHub since it was last read.'); e.conflict = true; throw e;
+        const e = new Error('The data changed in the cloud since it was last read.'); e.conflict = true; throw e;
       }
       if (!r.ok) throw httpError(r);
       return (await r.json()).content.sha;

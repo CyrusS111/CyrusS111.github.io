@@ -174,8 +174,8 @@ const Vault = (() => {
     },
     // First user ever: create the data file on GitHub.
     async create(username, pw, files) {
-      if (!token) throw needToken('Enter the GitHub token.');
-      if (await GitHub.read(DATA_PATH)) throw new Error('A data file already exists in this repository. Sign in instead.');
+      if (!token) throw needToken('Enter the access key.');
+      if (await GitHub.read(DATA_PATH)) throw new Error('This data store already has data. Sign in instead.');
       dataKey = await crypto.subtle.generateKey({ name: 'AES-GCM', length: 256 }, true, ['encrypt', 'decrypt']);
       user = await wrapFor(username.trim(), pw, dataKey, true);
       file = { v: 2, app: 'elsys-invoicing', users: [user], ...(await sealWith(dataKey, files)), savedAt: nowIso() };
@@ -188,15 +188,15 @@ const Vault = (() => {
     },
     // Sign in. Returns { files, online, unsent } where unsent = this device's changes not yet on GitHub.
     async login(username, pw, tokenInput) {
-      if (!device) throw new Error('This device is not connected to GitHub yet.');
+      if (!device) throw new Error('This device is not connected to cloud storage yet.');
       const u = username.trim().toLowerCase();
       const fromConnect = token;   // just typed on the Connect screen
       token = tokenInput ? tokenInput.trim()
         : device.tokens[u] ? await openToken(pw, device.tokens[u]).catch(() => fromConnect)
         : fromConnect;
       if (!token) throw needToken(device.tokens[u]
-        ? 'Wrong password. (If your password was changed on another device, also enter the GitHub token.)'
-        : 'First sign-in for this user on this device: enter the GitHub token as well.');
+        ? 'Wrong password. (If your password was changed on another device, also enter the access key.)'
+        : 'First sign-in for this user on this device: enter the access key as well.');
       GitHub.configure({ owner: device.owner, repo: device.repo, token });
       const local = await kvGet('vault');
       sync = (await kvGet('sync')) || { baseSha: null, dirty: false };
@@ -206,7 +206,7 @@ const Vault = (() => {
       catch (e) { if (e.offline) offline = true; else { if (e.status === 401) throw needToken(e.message); throw e; } }
 
       if (!offline) {
-        if (!remote) throw new Error('There is no data file in this GitHub repository yet.');
+        if (!remote) throw new Error('This data store has no data yet.');
         const rf = parse(remote.bytes);
         const entry = rf.users.find(x => x.u === u);
         if (!entry) throw new Error('Unknown user.');
@@ -224,7 +224,7 @@ const Vault = (() => {
       }
 
       // Offline sign-in
-      if (!local) throw new Error('No connection to GitHub, and this device has no saved copy yet. Connect to the internet to sign in.');
+      if (!local) throw new Error('No connection to cloud storage, and this device has no saved copy yet. Connect to the internet to sign in.');
       const entry = local.users.find(x => x.u === u);
       if (!entry) throw new Error('Unknown user.');
       dataKey = await unwrap(entry, pw).catch(() => { throw new Error('Wrong password.'); });
@@ -268,7 +268,7 @@ const Vault = (() => {
       Object.assign(file, { savedAt: nowIso() });
       await kvSet('vault', file); await kvSet('sync', sync);
       await push();
-      if (sync.dirty) throw new Error(lastError || 'Could not save to GitHub. Try again when online.');
+      if (sync.dirty) throw new Error(lastError || 'Could not save to the cloud. Try again when online.');
     },
     addUser(username, pw, admin) {
       return this.userOp(async () => {
