@@ -1,6 +1,6 @@
 // Offline cache so the app (and the PDF fonts) work without internet once installed.
 // PDF fonts are not cached here: they live in the device's own storage (see Vault.getFonts).
-const CACHE = 'elsys-invoicing-v6';
+const CACHE = 'elsys-invoicing-v7';
 const FILES = [
   './', 'index.html', 'manifest.webmanifest', 'lib/jspdf.umd.min.js',
   'js/github.js', 'js/vault.js', 'js/data.js', 'js/invoicepdf.js', 'js/app.js',

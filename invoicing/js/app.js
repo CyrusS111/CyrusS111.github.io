@@ -158,6 +158,13 @@ function go(view, arg) {
   window.scrollTo(0, 0);
 }
 $('#tabs').onclick = e => { const b = e.target.closest('button'); if (b) go(b.dataset.view); };
+// Buttons in the views carry data-act / data-arg instead of inline onclick code (keeps the strict security policy working,
+// and a stock code or invoice number can never turn into script).
+const ACTIONS = { go, stockDlg, replenishDlg, deleteStock, statusDlg, pdfFor, removeUser };
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-act]'); if (!el || !ACTIONS[el.dataset.act]) return;
+  'arg' in el.dataset ? ACTIONS[el.dataset.act](el.dataset.arg) : ACTIONS[el.dataset.act]();
+});
 
 // ============ dashboard ============
 VIEWS.dashboard = () => {
@@ -172,7 +179,7 @@ VIEWS.dashboard = () => {
   const recent = [...inv].sort((a, b) => b.updated_at.localeCompare(a.updated_at)).slice(0, 6);
   $('#main').innerHTML = `
     <div class="view-head"><h2>Dashboard</h2><span class="spacer"></span>
-      <button class="btn primary" onclick="go('editor')">New invoice / quotation</button></div>
+      <button class="btn primary" data-act="go" data-arg="editor">New invoice / quotation</button></div>
     <div class="grid kpis">
       <div class="card kpi"><div class="label">Owed to you (${outstanding.length} unpaid)</div><div class="value">${money(owed)}</div></div>
       <div class="card kpi"><div class="label">Billed this month</div><div class="value">${money(billed)}</div></div>
@@ -183,10 +190,10 @@ VIEWS.dashboard = () => {
       <div class="card"><h3 style="margin-bottom:10px">Low stock</h3>${low.length ? `<table><tbody>${low.map(s => `
         <tr><td>${esc(s.name)} <span class="muted">${esc(s.specification)}</span></td>
         <td class="num">${esc(s.qty)} ${esc(s.uom)}</td>
-        <td class="actions"><button class="btn small" onclick="replenishDlg('${esc(s.sku)}')">Replenish</button></td></tr>`).join('')}</tbody></table>`
+        <td class="actions"><button class="btn small" data-act="replenishDlg" data-arg="${esc(s.sku)}">Replenish</button></td></tr>`).join('')}</tbody></table>`
         : '<p class="muted">Everything is above its reorder level.</p>'}</div>
       <div class="card"><h3 style="margin-bottom:10px">Recent activity</h3>${recent.length ? `<table><tbody>${recent.map(i => `
-        <tr style="cursor:pointer" onclick="go('editor/${esc(i.number)}')"><td>${esc(i.number)}<div class="muted" style="font-size:13px">${esc(i.client_company || i.client_name)}</div></td>
+        <tr style="cursor:pointer" data-act="go" data-arg="editor/${esc(i.number)}"><td>${esc(i.number)}<div class="muted" style="font-size:13px">${esc(i.client_company || i.client_name)}</div></td>
         <td class="num">${money(i.grand_total)}</td><td>${statusPill(i.status)}</td></tr>`).join('')}</tbody></table>`
         : '<p class="muted">No invoices or quotations yet.</p>'}</div>
     </div>`;
@@ -197,8 +204,8 @@ VIEWS.stock = () => {
   $('#main').innerHTML = `
     <div class="view-head"><h2>Stock</h2><span class="spacer"></span>
       <input class="search" id="stock-q" placeholder="Search stock…">
-      <button class="btn" onclick="go('history')">Stock history</button>
-      <button class="btn primary" onclick="stockDlg()">Add item</button></div>
+      <button class="btn" data-act="go" data-arg="history">Stock history</button>
+      <button class="btn primary" data-act="stockDlg">Add item</button></div>
     <div class="table-wrap"><table><thead><tr><th class="hide-sm">Code</th><th>Item</th><th>Specification</th><th class="num">In stock</th>
       <th>UOM</th><th class="num">Unit cost</th><th class="num hide-sm">Reorder at</th><th></th></tr></thead><tbody id="stock-body"></tbody></table></div>`;
   const render = () => {
@@ -210,7 +217,7 @@ VIEWS.stock = () => {
       return `<tr><td class="muted hide-sm">${esc(s.sku)}</td><td>${esc(s.name)}</td><td>${esc(s.specification)}</td>
         <td class="num">${low ? `<span class="pill bad">${esc(s.qty)}</span>` : esc(s.qty)}</td><td>${esc(s.uom)}</td>
         <td class="num">${money(s.unit_cost)}</td><td class="num hide-sm">${esc(s.reorder_level)}</td>
-        <td class="actions"><button class="btn small primary" onclick="replenishDlg('${esc(s.sku)}')">Replenish</button><button class="btn small" onclick="stockDlg('${esc(s.sku)}')">Edit</button><button class="btn small danger" onclick="deleteStock('${esc(s.sku)}')">Delete</button></td></tr>`;
+        <td class="actions"><button class="btn small primary" data-act="replenishDlg" data-arg="${esc(s.sku)}">Replenish</button><button class="btn small" data-act="stockDlg" data-arg="${esc(s.sku)}">Edit</button><button class="btn small danger" data-act="deleteStock" data-arg="${esc(s.sku)}">Delete</button></td></tr>`;
     }).join('') : `<tr><td colspan="8" class="empty">${q ? 'Nothing matches your search.' : 'No stock yet. Add your first item.'}</td></tr>`;
   };
   $('#stock-q').oninput = render; render();
@@ -250,7 +257,7 @@ async function deleteStock(sku) {
 VIEWS.history = () => {
   const names = Object.fromEntries(Store.stock().map(s => [s.sku, s.name + ' ' + s.specification]));
   const rows = [...Store.movements()].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 500);
-  $('#main').innerHTML = `<div class="view-head"><h2>Stock history</h2><span class="spacer"></span><button class="btn" onclick="go('stock')">Back to stock</button></div>
+  $('#main').innerHTML = `<div class="view-head"><h2>Stock history</h2><span class="spacer"></span><button class="btn" data-act="go" data-arg="stock">Back to stock</button></div>
     <div class="table-wrap"><table><thead><tr><th>When</th><th>Item</th><th>Change</th><th class="num">Qty</th><th>Ref</th><th class="hide-sm">By</th><th class="hide-sm">Note</th></tr></thead><tbody>
     ${rows.length ? rows.map(m => `<tr><td>${esc(m.date.slice(0, 16).replace('T', ' '))}</td><td>${esc(names[m.sku] || m.sku)}</td><td>${esc(m.type)}</td>
       <td class="num">${Store.num(m.qty) > 0 ? '+' : ''}${esc(m.qty)}</td><td>${m.ref ? `<a href="#editor/${esc(m.ref)}">${esc(m.ref)}</a>` : ''}</td>
@@ -265,7 +272,7 @@ VIEWS.invoices = () => {
       <input class="search" id="inv-q" placeholder="Search number or client…">
       <select id="inv-type" style="width:auto"><option value="">All types</option><option>Invoice</option><option>Quotation</option></select>
       <select id="inv-status" style="width:auto"><option value="">Any status</option>${[...new Set([...STATUSES.Invoice, ...STATUSES.Quotation])].map(s => `<option>${s}</option>`).join('')}</select>
-      <button class="btn primary" onclick="go('editor')">New</button></div>
+      <button class="btn primary" data-act="go" data-arg="editor">New</button></div>
     <div class="table-wrap"><table><thead><tr><th>Number</th><th>Date</th><th>Client</th><th class="num">Total</th><th class="num hide-sm">Balance</th><th>Status</th><th></th></tr></thead>
     <tbody id="inv-body"></tbody></table></div>`;
   const render = () => {
@@ -278,7 +285,7 @@ VIEWS.invoices = () => {
       return `<tr><td style="white-space:nowrap"><a href="#editor/${esc(i.number)}">${esc(i.number)}</a><div class="muted" style="font-size:12px">${esc(i.type)}${i.converted_to ? ' → ' + esc(i.converted_to) : ''}</div></td>
       <td style="white-space:nowrap">${esc(InvoicePDF.fmtDate(i.date))}</td><td>${esc(i.client_company || i.client_name)}<div class="muted" style="font-size:12px">${esc(i.description)}</div></td>
       <td class="num">${money(i.grand_total)}</td><td class="num hide-sm">${bal == null ? '' : money(bal)}</td><td>${statusPill(i.status)}</td>
-      <td class="actions"><button class="btn small" onclick="pdfFor('${esc(i.number)}')">PDF</button><button class="btn small" onclick="statusDlg('${esc(i.number)}')">Status</button></td></tr>`;
+      <td class="actions"><button class="btn small" data-act="pdfFor" data-arg="${esc(i.number)}">PDF</button><button class="btn small" data-act="statusDlg" data-arg="${esc(i.number)}">Status</button></td></tr>`;
     }).join('') : `<tr><td colspan="7" class="empty">${q || ty || st ? 'Nothing matches.' : 'No invoices or quotations yet.'}</td></tr>`;
   };
   ['inv-q', 'inv-type', 'inv-status'].forEach(id => $('#' + id).oninput = render); render();
@@ -457,7 +464,7 @@ VIEWS.settings = () => {
 
       <div class="card"><h3 style="margin-bottom:12px">Users</h3>
         <div class="table-wrap" style="margin-bottom:12px"><table><tbody>${Vault.users.map(u => `<tr><td>${esc(u.name)}</td><td>${u.admin ? '<span class="pill">Admin</span>' : ''}</td>
-          <td class="actions">${admin && u.name.toLowerCase() !== Vault.user.u ? `<button class="btn small danger" onclick="removeUser('${esc(u.name)}')">Remove</button>` : ''}</td></tr>`).join('')}</tbody></table></div>
+          <td class="actions">${admin && u.name.toLowerCase() !== Vault.user.u ? `<button class="btn small danger" data-act="removeUser" data-arg="${esc(u.name)}">Remove</button>` : ''}</td></tr>`).join('')}</tbody></table></div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">${admin ? '<button class="btn" id="add-user">Add user</button>' : ''}<button class="btn" id="chg-pw">Change my password</button></div>
         <p class="muted" style="margin:10px 0 0;font-size:13px">User changes need an internet connection and apply on every device at its next sync. A new user signs in on a device with the access key the first time.</p></div>
 
