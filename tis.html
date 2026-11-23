@@ -12,7 +12,7 @@
 <link rel="icon" href="/assets/icons/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <meta name="theme-color" content="#12395A">
-<meta property="og:title" content="TiS · Turnkey Industrial Solutions by EL-SYS">
+<meta property="og:title" content="TiS by EL-SYS: Industrial Parts, CNC &amp; 3D Printing in Kampala">
 <meta property="og:description" content="Genuine industrial parts, local fabrication from your drawings, and custom-designed parts in Uganda.">
 <link rel="canonical" href="https://el-sysce.com/tis.html">
 <meta property="og:type" content="website">
@@ -221,6 +221,22 @@
   .related a { display: block; background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--ochre); border-radius: var(--radius); padding: 16px 18px; text-decoration: none; color: var(--slate); font-weight: 600; }
   .related a span { display: block; color: var(--muted); font-weight: 400; font-size: .9rem; margin-top: 4px; }
   .related a:hover { border-color: var(--spruce); }
+  /* TiS menu on phones: short labels, wrapped onto their own row; EL-SYS bar slides away while scrolling down */
+  .subnav nav a .s { display: none; }
+  @media (max-width: 700px) {
+    .subnav .wrap { flex-wrap: wrap; min-height: 0; padding-top: 8px; padding-bottom: 8px; row-gap: 6px; }
+    .subnav .order-btn { margin-left: auto; min-height: 38px; }
+    .subnav nav { flex: 1 1 100%; order: 3; flex-wrap: wrap; overflow: visible; gap: 4px; align-self: auto; }
+    .subnav nav a { min-height: 34px; padding: 0 10px; font-size: .88rem; border-radius: 6px; border-bottom-width: 2px; background: rgba(255,255,255,.06); }
+    .subnav nav a .l { display: none; }
+    .subnav nav a .s { display: inline; }
+  }
+  @media (max-width: 860px) {
+    header { transition: transform .25s ease; }
+    body.head-up header { transform: translateY(-100%); }
+    .subnav { transition: top .25s ease; }
+    body.head-up .subnav { top: 0; }
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -266,7 +282,7 @@
     <a class="logo" href="index.html" aria-label="EL-SYS home"><img src="assets/logo-blue.svg" alt="EL-SYS Controls &amp; Engineering Ltd" width="227" height="100"></a>
     <ul id="site-nav">
       <li><a href="index.html#services">Services</a></li>
-      <li><a href="tis.html" aria-current="page">Fabrication (TiS)</a></li>
+      <li><a href="tis.html" aria-current="page">TiS: Parts &amp; Fabrication</a></li>
       <li><a href="index.html#about">About</a></li>
       <li><a href="index.html#contact">Contact</a></li>
     </ul>
@@ -287,13 +303,13 @@
       <img class="mark" src="assets/tis/tis-mark-white.png" alt="TiS" width="119" height="160">
     </a>
     <nav aria-label="TiS sections">
-      <a href="#overview" class="on">Overview</a>
-      <a href="3d-printing-kampala.html">3D printing</a>
-      <a href="cnc-fabrication-uganda.html">CNC &amp; fabrication</a>
-      <a href="industrial-parts-kampala.html">Genuine parts</a>
-      <a href="#make">Make it</a>
-      <a href="#shop">Shop parts</a>
-      <a href="#custom">Custom design</a>
+      <a href="#overview" class="on"><span class="l">Overview</span><span class="s">Overview</span></a>
+      <a href="3d-printing-kampala.html"><span class="l">3D printing</span><span class="s">3D print</span></a>
+      <a href="cnc-fabrication-uganda.html"><span class="l">CNC &amp; fabrication</span><span class="s">CNC</span></a>
+      <a href="industrial-parts-kampala.html"><span class="l">Genuine parts</span><span class="s">Parts</span></a>
+      <a href="#make"><span class="l">Make it</span><span class="s">Make it</span></a>
+      <a href="#shop"><span class="l">Shop parts</span><span class="s">Shop</span></a>
+      <a href="#custom"><span class="l">Custom design</span><span class="s">Design</span></a>
     </nav>
     <button class="order-btn" type="button" id="open-order" aria-haspopup="dialog">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11h11l2-8H6.2"/><circle cx="9" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg>
@@ -307,7 +323,7 @@
   <section class="dark hero" id="overview">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow">TiS · Turnkey Industrial Solutions</div>
+        <div class="eyebrow">TiS by EL-SYS · Parts &amp; fabrication</div>
         <h1>Can it be made in Uganda? Send the drawing. We'll quote it.</h1>
         <p class="lead">Genuine industrial parts from certified suppliers, local fabrication from your CAD file or a photo of the broken part, and custom design when there's no drawing at all. One team, one order, one delivery.</p>
         <div class="hero-ctas">
@@ -560,6 +576,7 @@
         <a href="cnc-fabrication-uganda.html">CNC machining &amp; fabrication<span>Turning, milling, cutting, welding, gears and shafts.</span></a>
         <a href="industrial-parts-kampala.html">Genuine industrial parts<span>SMC, Festo, Schneider Electric, Omron, Mean Well, SKF.</span></a>
         <a href="#custom">Custom part design<span>No drawing? We measure, model and draw it.</span></a>
+        <a href="index.html#services">Machine keeps failing?<span>EL-SYS can retrofit or automate it: modern controls, documented wiring.</span></a>
       </div>
     </div>
   </section>

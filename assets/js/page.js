@@ -12,4 +12,13 @@
   nav.addEventListener('click', function (e) {
     if (e.target.closest('a')) { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); menuBtn.setAttribute('aria-label', 'Open menu'); }
   });
+  
+  // Phones: slide the EL-SYS bar away while scrolling down, bring it back when scrolling up (CSS limits this to narrow screens).
+  var lastY = window.scrollY;
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    if (Math.abs(y - lastY) < 8) return;
+    document.body.classList.toggle('head-up', y > lastY && y > 120 && !document.getElementById('site-nav').classList.contains('open'));
+    lastY = y;
+  }, { passive: true });
 })();

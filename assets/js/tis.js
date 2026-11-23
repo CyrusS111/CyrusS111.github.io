@@ -10,6 +10,16 @@ menuBtn.addEventListener('click', function () {
   menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
 });
 
+
+// Phones: slide the EL-SYS bar away while scrolling down, bring it back when scrolling up (CSS limits this to narrow screens).
+var lastY = window.scrollY;
+window.addEventListener('scroll', function () {
+  var y = window.scrollY;
+  if (Math.abs(y - lastY) < 8) return;
+  document.body.classList.toggle('head-up', y > lastY && y > 120 && !document.getElementById('site-nav').classList.contains('open'));
+  lastY = y;
+}, { passive: true });
+
 // Highlight the TiS tab for the section on screen
 var tabs = [].slice.call(document.querySelectorAll('.subnav nav a[href^="#"]'));   // in-page tabs only; the others open TiS pages
 var secs = tabs.map(function (a) { return document.querySelector(a.getAttribute('href')); });
