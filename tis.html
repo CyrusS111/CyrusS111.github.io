@@ -217,6 +217,10 @@
   .faq summary::after { content: "+"; position: absolute; right: 4px; top: 10px; font-size: 1.4em; color: var(--ochre); }
   .faq details[open] summary::after { content: "\2013"; }
   .faq details p { margin: 0 0 16px; color: var(--muted, #555); }
+  .related { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 20px; }
+  .related a { display: block; background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--ochre); border-radius: var(--radius); padding: 16px 18px; text-decoration: none; color: var(--slate); font-weight: 600; }
+  .related a span { display: block; color: var(--muted); font-weight: 400; font-size: .9rem; margin-top: 4px; }
+  .related a:hover { border-color: var(--spruce); }
 </style>
 <script type="application/ld+json">
 {
@@ -541,6 +545,20 @@
         <button class="btn btn-wa" type="submit" style="justify-self: start">Send brief on WhatsApp</button>
         <p class="note" id="design-note">Add photos, sketches or old drawings in the WhatsApp chat. The first review is free.</p>
       </form>
+    </div>
+  </section>
+
+  <!-- More from TiS -->
+  <section class="soft">
+    <div class="wrap">
+      <div class="eyebrow">More from TiS</div>
+      <h2>TiS services in detail</h2>
+      <div class="related">
+        <a href="3d-printing-kampala.html">3D printing in Kampala<span>Prototypes, housings, jigs and plastic spares in days.</span></a>
+        <a href="cnc-fabrication-uganda.html">CNC machining &amp; fabrication<span>Turning, milling, cutting, welding, gears and shafts.</span></a>
+        <a href="industrial-parts-kampala.html">Genuine industrial parts<span>SMC, Festo, Schneider Electric, Omron, Mean Well, SKF.</span></a>
+        <a href="#custom">Custom part design<span>No drawing? We measure, model and draw it.</span></a>
+      </div>
     </div>
   </section>
 

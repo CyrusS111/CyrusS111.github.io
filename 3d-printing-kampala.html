@@ -234,7 +234,9 @@
   .steps4 .st::before { counter-increment: st; content: counter(st); display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--ochre); color: var(--slate); font-weight: 700; margin-bottom: 10px; }
   .steps4 h3 { margin: 0 0 6px; font-size: 1.05rem; }
   .steps4 p { margin: 0; color: var(--muted); font-size: .95rem; }
-  .gallery { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-top: 24px; }
+  .gallery { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); margin-top: 24px; }
+  @media (min-width: 560px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 800px) { .gallery { grid-template-columns: repeat(6, 1fr); } }
   .gallery figure { margin: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
   .gallery img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
   .gallery figcaption { padding: 10px 12px; font-size: .88rem; font-weight: 600; }

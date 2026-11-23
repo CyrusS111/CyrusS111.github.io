@@ -17,6 +17,9 @@
 - [Smart Controls](https://el-sysce.com/#services): smart homes, offices and shops; automatic switching, timers, remote monitoring and alerts.
 - [Electrical Installations](https://el-sysce.com/#services): commercial and residential wiring, distribution boards and protection, inspections, fault-finding and upgrades.
 - [TiS: Turnkey Industrial Solutions](https://el-sysce.com/tis.html): genuine industrial parts (sourced from certified vendors or their authorised representatives), fabrication from CAD files, drawings or a photo, 3D printing, and custom part design.
+  - [3D printing in Kampala](https://el-sysce.com/3d-printing-kampala.html): prototypes, enclosures, jigs and plastic spares in PLA, PETG, ABS/ASA, TPU, nylon and resin.
+  - [CNC machining and fabrication in Uganda](https://el-sysce.com/cnc-fabrication-uganda.html): turning, milling, laser and plasma cutting, sheet metal, welding, gears and shafts from drawings or broken samples.
+  - [Genuine industrial parts in Kampala](https://el-sysce.com/industrial-parts-kampala.html): SMC and Festo pneumatics, Schneider Electric switchgear and drives, Omron sensors, Mean Well power supplies, SKF bearings.
 
 ## How it works
 

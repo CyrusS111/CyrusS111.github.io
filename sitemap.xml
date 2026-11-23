@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://el-sysce.com/</loc>
-    <lastmod>2026-11-23</lastmod>
-  </url>
-  <url>
-    <loc>https://el-sysce.com/tis.html</loc>
-    <lastmod>2026-11-23</lastmod>
-  </url>
+  <url><loc>https://el-sysce.com/</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://el-sysce.com/tis.html</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://el-sysce.com/3d-printing-kampala.html</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://el-sysce.com/cnc-fabrication-uganda.html</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://el-sysce.com/industrial-parts-kampala.html</loc><lastmod>2026-11-23</lastmod></url>
 </urlset>
