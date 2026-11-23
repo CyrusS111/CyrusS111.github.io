@@ -188,7 +188,81 @@
   .social svg { width: 20px; height: 20px; }
   .contact-social a { background: var(--blue-tint); color: var(--blue); }
   .contact-social a:hover { background: #d6e4f0; }
+  .faq { max-width: 860px; margin-top: 24px; }
+  .faq details { border-bottom: 1px solid var(--line, #dde3ea); padding: 4px 0; }
+  .faq summary { cursor: pointer; list-style: none; font-weight: 600; padding: 14px 32px 14px 0; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; position: absolute; right: 4px; top: 10px; font-size: 1.4em; color: var(--blue); }
+  .faq details[open] summary::after { content: "\2013"; }
+  .faq details p { margin: 0 0 16px; color: var(--muted, #555); }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://el-sysce.com/#organization",
+      "name": "EL-SYS Controls & Engineering Ltd",
+      "alternateName": ["EL-SYS", "EL-SYS Controls & Engineering", "ELSYS"],
+      "url": "https://el-sysce.com/",
+      "logo": "https://el-sysce.com/assets/logo-blue.svg",
+      "image": "https://el-sysce.com/assets/og-image.jpg",
+      "description": "Ugandan engineering company providing energy management, retrofitting of legacy machines, industrial automation (PLC, HMI, SCADA), smart controls and electrical installations for businesses, factories, institutions and homes.",
+      "foundingDate": "2022",
+      "founder": { "@type": "Person", "name": "Joseph Bwamiki", "jobTitle": "Electrical Systems Engineer" },
+      "telephone": "+256701475685",
+      "email": "info@el-sysce.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Kampala", "addressCountry": "UG" },
+      "areaServed": [{ "@type": "Country", "name": "Uganda" }, { "@type": "Place", "name": "East Africa" }],
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00", "closes": "18:00"
+      }],
+      "contactPoint": [{ "@type": "ContactPoint", "telephone": "+256701475685", "email": "info@el-sysce.com", "contactType": "customer service", "areaServed": "UG", "availableLanguage": ["English"] }],
+      "sameAs": [
+        "https://www.linkedin.com/company/94253656/",
+        "https://www.instagram.com/elsys_ce/",
+        "https://www.facebook.com/profile.php?id=61596646021228"
+      ],
+      "knowsAbout": ["Energy audits", "Power factor correction", "Machine retrofitting", "PLC programming", "HMI", "SCADA", "Control panel design", "Smart home automation", "Electrical installations", "Industrial fabrication", "3D printing", "CAD design"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Engineering services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Energy Management", "description": "Energy audits, load measurement, power-factor and tariff checks, scheduling, metering and savings plans." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Retrofitting Legacy Machines", "description": "Modern drives, sensors, PLC controls and safety interlocks for old but mechanically sound machines." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Industrial Automation", "description": "PLC, HMI and SCADA systems; pumping, process and warehouse automation; control panel design and building." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Smart Controls", "description": "Smart homes, offices and shops; automatic switching, timers, remote monitoring and alerts." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electrical Installations", "description": "Commercial and residential wiring, distribution boards and protection, inspections, fault-finding and upgrades." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "TiS: Turnkey Industrial Solutions", "url": "https://el-sysce.com/tis.html", "description": "Genuine industrial parts, local fabrication from drawings or photos, 3D printing and custom-designed parts in Uganda." } }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://el-sysce.com/#website",
+      "url": "https://el-sysce.com/",
+      "name": "EL-SYS Controls & Engineering",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://el-sysce.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+  { "@type": "Question", "name": "My machine keeps breaking down and the parts are discontinued. Do I need a new machine?", "acceptedAnswer": { "@type": "Answer", "text": "Usually not. If the frame, mechanics and hydraulics are sound, we retrofit the controls: the old controller is replaced with a modern PLC, drives and touchscreen built from parts available in Uganda. It costs a fraction of a new machine and every wire is drawn and labelled." } },
+  { "@type": "Question", "name": "Which areas do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "We are based in Kampala and serve clients across Uganda. Projects elsewhere in East Africa are possible by arrangement." } },
+  { "@type": "Question", "name": "How do I get a quote?", "acceptedAnswer": { "@type": "Answer", "text": "Send a WhatsApp message to +256 701 475 685 with a short description and photos (for machines, include the nameplate). We then arrange a site visit by appointment and give you a written scope, quote and timeline before any work starts." } },
+  { "@type": "Question", "name": "How much can an energy audit save my business?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on your equipment, tariff and operating hours. An audit measures where your power actually goes, checks power factor and tariff, and shows the expected savings before you spend on any changes." } },
+  { "@type": "Question", "name": "Will my production have to stop during the work?", "acceptedAnswer": { "@type": "Answer", "text": "Work is planned around your production. Most preparation is done in advance, and you choose the shutdown days for the final changeover." } },
+  { "@type": "Question", "name": "Who maintains the system after installation?", "acceptedAnswer": { "@type": "Answer", "text": "You receive drawings, documentation and a handover, so any qualified technician can maintain the system. We also stay reachable on WhatsApp for questions, maintenance and upgrades." } },
+  { "@type": "Question", "name": "Can you make a part locally instead of importing it?", "acceptedAnswer": { "@type": "Answer", "text": "Often, yes. Through TiS (Turnkey Industrial Solutions) we fabricate parts from your CAD files, drawings or a photo, 3D print prototypes and spares, design custom parts, and supply genuine industrial parts sourced from certified vendors or their authorised representatives." } },
+  { "@type": "Question", "name": "What are your working hours?", "acceptedAnswer": { "@type": "Answer", "text": "Monday to Saturday, 8:00 to 18:00. Site visits are by appointment." } }
+] }
+</script>
 </head>
 <body>
 
@@ -388,6 +462,24 @@
             <dd><ul class="industries"><li>Manufacturing</li><li>Food &amp; beverage</li><li>Water &amp; pumping</li><li>Commercial buildings</li><li>Schools &amp; institutions</li><li>Homes</li></ul></dd></div>
         </dl>
       </aside>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="eyebrow">Common questions</div>
+      <h2>Questions clients ask us.</h2>
+      <div class="faq">
+        <details><summary>My machine keeps breaking down and the parts are discontinued. Do I need a new machine?</summary><p>Usually not. If the frame, mechanics and hydraulics are sound, we retrofit the controls: the old controller is replaced with a modern PLC, drives and touchscreen built from parts available in Uganda. It costs a fraction of a new machine and every wire is drawn and labelled.</p></details>
+        <details><summary>Which areas do you serve?</summary><p>We are based in Kampala and serve clients across Uganda. Projects elsewhere in East Africa are possible by arrangement.</p></details>
+        <details><summary>How do I get a quote?</summary><p>Send a WhatsApp message to +256 701 475 685 with a short description and photos (for machines, include the nameplate). We then arrange a site visit by appointment and give you a written scope, quote and timeline before any work starts.</p></details>
+        <details><summary>How much can an energy audit save my business?</summary><p>It depends on your equipment, tariff and operating hours. An audit measures where your power actually goes, checks power factor and tariff, and shows the expected savings before you spend on any changes.</p></details>
+        <details><summary>Will my production have to stop during the work?</summary><p>Work is planned around your production. Most preparation is done in advance, and you choose the shutdown days for the final changeover.</p></details>
+        <details><summary>Who maintains the system after installation?</summary><p>You receive drawings, documentation and a handover, so any qualified technician can maintain the system. We also stay reachable on WhatsApp for questions, maintenance and upgrades.</p></details>
+        <details><summary>Can you make a part locally instead of importing it?</summary><p>Often, yes. Through TiS (Turnkey Industrial Solutions) we fabricate parts from your CAD files, drawings or a photo, 3D print prototypes and spares, design custom parts, and supply genuine industrial parts sourced from certified vendors or their authorised representatives.</p></details>
+        <details><summary>What are your working hours?</summary><p>Monday to Saturday, 8:00 to 18:00. Site visits are by appointment.</p></details>
+      </div>
     </div>
   </section>
 
