@@ -11,7 +11,7 @@ menuBtn.addEventListener('click', function () {
 });
 
 // Highlight the TiS tab for the section on screen
-var tabs = [].slice.call(document.querySelectorAll('.subnav nav a'));
+var tabs = [].slice.call(document.querySelectorAll('.subnav nav a[href^="#"]'));   // in-page tabs only; the others open TiS pages
 var secs = tabs.map(function (a) { return document.querySelector(a.getAttribute('href')); });
 function onScroll() {
   var y = window.scrollY + 200, cur = 0;
