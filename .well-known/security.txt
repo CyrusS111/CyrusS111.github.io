@@ -1,0 +1,4 @@
+Contact: mailto:info@el-sysce.com
+Expires: 2027-11-23T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://el-sysce.com/.well-known/security.txt
